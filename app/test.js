@@ -22,13 +22,19 @@ console.log(firstDistance, secondDistance);
   
 //document.write(calculatelDistance);
 
+// var buyBread = function(eggs){
+//     if (eggs){
+//         return 10;
+//     }
+//     else{
+//         return 1;
+//     }
+//     //Можно без else, просто return
+// };
+
 var buyBread = function(eggs){
-    if (eggs){
-        return 10;
-    }
-    else{
-        return 1;
-    }
-    //Можно без else, просто return
+    return eggs ? 13 : 3;
 };
+
+
 console.log(buyBread(true));
