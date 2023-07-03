@@ -1,11 +1,10 @@
+"use strict";
 // var nastyaSpeed = 15;
 // var antonSpeed = 14;
 // var time = 3;
 // var nastyaDistance = nastyaSpeed * time;
 // var antonDistance = antonSpeed * time;
 // var totalDistance = antonDistance + nastyaDistance;
-
-alert("Salam aleykum")
 
 var calculateDistance = function(time, nastyaSpeed, antonSpeed){
   
@@ -38,5 +37,10 @@ var buyBread = function(eggs){
     return eggs ? 13 : 3;
 };
 
-
 console.log(buyBread(true));
+
+//Задания
+var userName = "John";
+var admin;
+admin = userName;
+alert(admin);
