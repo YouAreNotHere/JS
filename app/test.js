@@ -5,6 +5,8 @@
 // var antonDistance = antonSpeed * time;
 // var totalDistance = antonDistance + nastyaDistance;
 
+alert("Salam aleykum")
+
 var calculateDistance = function(time, nastyaSpeed, antonSpeed){
   
 var nastyaDistance = nastyaSpeed * time;
