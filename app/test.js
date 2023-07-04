@@ -40,7 +40,36 @@ var buyBread = function(eggs){
 console.log(buyBread(true));
 
 //Задания
-var userName = "John";
-var admin;
-admin = userName;
-alert(admin);
+// var userName = "John";
+// var admin;
+// admin = userName;
+// alert(admin);
+
+// let isGreater = 4 > 5;
+
+// alert( isGreater ); // true (результатом сравнения будет "да")
+
+
+
+// let result = prompt("Введите Ваше имя", ["Пидор"]);
+// let finalResult = confirm(`Ваше имя ${result}?`);
+
+// if(finalResult){
+//     alert(`Добро пожаловать, ${result}`)
+// }
+// else{
+//     alert(`Пошёл нахуй, ${result}`)
+// }
+
+
+
+let age = Number (prompt('Сколько тебе лет?', 26)); //Number преобразовывает результат в числа, т.к. промт (вопрос алертом) записывает значение переменной в строку.
+
+// alert(`Тебе ${age} лет!`); 
+
+//let age = prompt("How old a u?",[26]);
+
+//age = Number(age);
+alert(typeof age);
+//Но проще так
+//alert(Number(age))
