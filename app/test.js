@@ -63,13 +63,50 @@ console.log(buyBread(true));
 
 
 
-let age = Number (prompt('Сколько тебе лет?', 26)); //Number преобразовывает результат в числа, т.к. промт (вопрос алертом) записывает значение переменной в строку.
+//let age = Number (prompt('Сколько тебе лет?', 26)); //Number преобразовывает результат в числа, т.к. промт (вопрос алертом) записывает значение переменной в строку.
 
 // alert(`Тебе ${age} лет!`); 
 
 //let age = prompt("How old a u?",[26]);
 
 //age = Number(age);
-alert(typeof age);
+//alert(typeof age);
 //Но проще так
 //alert(Number(age))
+
+
+// let a = 4;
+// let b = 2;
+
+// let c = 3 - (a = b + a);
+
+// alert( a ); // 3
+// alert( c ); // 0
+
+
+
+
+// let n = 2;
+// n += 5; // теперь n = 7 (работает как n = n + 5)
+// n *= 2; // теперь n = 14 (работает как n = n * 2)
+
+// alert( n ); // 14
+
+
+
+// let n = 2;
+
+// n *= 3 + 5;
+
+// alert( n ); // 16  (сначала выполнится правая часть, выражение идентично n *= 8)
+
+
+
+
+let counter = 1;
+let a = counter++ +2; 
+
+let b = counter+2;
+
+alert(b); 
+
