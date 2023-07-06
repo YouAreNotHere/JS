@@ -103,10 +103,17 @@ console.log(buyBread(true));
 
 
 
-let counter = 1;
-let a = counter++ +2; 
+let a = Number(prompt("Первое число?", ["1"]));
+let b = Number(prompt("Второе число?", ["2"]));
 
-let b = counter+2;
+alert(a + b); // 12
 
-alert(b); 
 
+
+let a = 0;
+alert( Boolean(a) ); // false
+
+let b = "0";
+alert( Boolean(b) ); // true
+
+alert(a == b); // true!
