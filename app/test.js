@@ -6,20 +6,20 @@
 // var antonDistance = antonSpeed * time;
 // var totalDistance = antonDistance + nastyaDistance;
 
-var calculateDistance = function(time, nastyaSpeed, antonSpeed){
+// var calculateDistance = function(time, nastyaSpeed, antonSpeed){
   
-var nastyaDistance = nastyaSpeed * time;
-var antonDistance = antonSpeed * time;
-var totalDistance = antonDistance + nastyaDistance;
+// var nastyaDistance = nastyaSpeed * time;
+// var antonDistance = antonSpeed * time;
+// var totalDistance = antonDistance + nastyaDistance;
   
-return totalDistance;
-};
+// return totalDistance;
+//};
 //console.log(calculateDistance(3, 12, 15)*3);
 
-var firstDistance = calculateDistance(3,12,14)*3;
-var secondDistance = calculateDistance(2,5,13);
+// var firstDistance = calculateDistance(3,12,14)*3;
+// var secondDistance = calculateDistance(2,5,13);
 
-console.log(firstDistance, secondDistance);
+// console.log(firstDistance, secondDistance);
   
 //document.write(calculatelDistance);
 
@@ -33,9 +33,9 @@ console.log(firstDistance, secondDistance);
 //     //Можно без else, просто return
 // };
 
-var buyBread = function(eggs){
-    return eggs ? 13 : 3;
-};
+// var buyBread = function(eggs){
+//     return eggs ? 13 : 3;
+// };
 //Если идёт сравнение, знак вопроса и последующие тру и фолс можно
 //опустить, т.к. сравнение уже само себе подразумеват тру и фолс
 //типа:
@@ -48,7 +48,7 @@ var buyBread = function(eggs){
 // alert(alcoholAllowed);
 
 
-console.log(buyBread(true));
+//console.log(buyBread(true));
 
 //Задания
 // var userName = "John";
@@ -253,25 +253,141 @@ console.log(buyBread(true));
 
 
 
-let userName = prompt("Press ur login name","");
-let userPassword;
+// let userName = prompt("Press ur login name","");
+// let userPassword;
 
-if (userName == "Админ"){
-    userPassword = prompt("Press ur password","");
-    if (userPassword == "Я главный"){
-        alert("Здравствуйте");
-    }
-    else if (userPassword == NaN || undefined){
-        alert("Отменено");
-    }
-    else if (!(userPassword == "Я главный")) {
-        alert("Неверный пароль");
-    }
-}
-else if (userName == undefined||NaN){
-    alert("Отменено");
-}
-else if (!(userName =="Админ")){
-    alert("Я Вас не знаю");
-};
+// if (userName == "Админ"){
+//     userPassword = prompt("Press ur password","");
+//     if (userPassword == "Я главный"){
+//         alert("Здравствуйте");
+//     }
+//     else if (userPassword === undefined || userPassword === NaN || userPassword ===null || userPassword === ""){
+//         alert("Отменено");
+//     }
+//     else if (!(userPassword == "Я главный")) {
+//         alert("Неверный пароль");
+//     }
+// }
+// else if (userName == undefined ||userName == NaN || userName == null || userName == ""){
+//     alert("Отменено");
+// }
+// else if (!(userName =="Админ")){
+//     alert("Я Вас не знаю");
+// };
 
+// Как проще!!
+
+// let userName = prompt("Кто там?", '');
+
+// if (userName === 'Админ') {
+
+//   let pass = prompt('Пароль?', '');
+
+//   if (pass === 'Я главный') {
+//     alert( 'Здравствуйте!' );
+//   } else if (pass === '' || pass === null) {
+//     alert( 'Отменено' );
+//   } else {
+//     alert( 'Неверный пароль' );
+//   }
+
+// } else if (userName === '' || userName === null) {
+//   alert( 'Отменено' );
+// } else {
+//   alert( "Я вас не знаю" );
+// }
+
+
+
+
+// let i = 0;
+// while (i < 3) { // выводит 0, затем 1, затем 2
+//   alert( i );
+//   i++;
+// }
+
+// let i = 0;
+// do {
+//   alert( i );
+//   i++;
+// } while (i < 3);
+
+// for (let i = 0; i < 3; i++) { // выведет 0, затем 1, затем 2
+//     alert(i);
+//   }
+
+
+
+
+// let sum = 0;
+
+// while (true) {
+
+//   let value = +prompt("Введите число", '');
+
+//   if (!value) break; // (*)
+
+//   sum += value;
+
+// }
+// alert( 'Сумма: ' + sum );
+
+
+// let a = 3;
+// for (; a < 1000000000; ++a){
+//     if (a!==1000000000) continue;
+
+//     alert(a);
+// }
+// alert (a);
+
+
+// let i = 0;
+//while (++i < 5) alert( i );
+//Можно зашить ++ прямо в условия цикла!!!
+
+// let i = 0;
+// while (i++ < 5) alert( i );
+// Первое значение: i = 1. Остановимся на нём подробнее. Оператор i++ увеличивает i, возвращая старое значение, так что в сравнении i++ < 5 будет участвовать старое i = 0.
+
+// Но последующий вызов alert уже не относится к этому выражению, так что получит новый i = 1.
+
+
+// for (let i = 0; i < 3; i++) {
+//     alert( `number ${i}!` );
+//   }
+
+
+// zhopa: for (let i = 0; i < 3; i++) {
+
+//     for (let j = 0; j < 3; j++) {
+  
+//       let input = prompt(`Значение на координатах (${i},${j})`, '');
+//       if (!(input)) continue zhopa;
+  
+//     }
+//   }
+  
+//   alert('Готово!');
+
+
+
+// gg: for (;!(answer>99);) {
+//     answer = +prompt("Введи число больше ста","");
+//     if (answer === null) break gg;
+//     for (;!(answer>99);){
+//     answer = +prompt("Не, попробуй ещё","");
+//     if (answer === null) break gg;
+//     }
+// }
+// alert("Well done!");
+
+
+// for (;(n%n)==1 || (n%1)==n;n++){
+//     alert(n);
+// }
+
+let n;
+for (n=0; ((n%2)!==1) && ((n%3)==1);n++){
+    alert(n);
+}
