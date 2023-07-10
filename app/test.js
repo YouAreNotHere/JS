@@ -387,7 +387,145 @@
 //     alert(n);
 // }
 
-let n;
-for (n=0; ((n%2)!==1) && ((n%3)==1);n++){
-    alert(n);
-}
+
+// switch (browser) {
+//     case 'Edge':
+//       alert( "You've got the Edge!" );
+//       break;
+  
+//     case 'Chrome':
+//     case 'Firefox':
+//     case 'Safari':
+//     case 'Opera':
+//       alert( 'Okay we support these browsers too' );
+//       break;
+  
+//     default:
+//       alert( 'We hope that this page looks ok!' );
+//   }
+
+//   let Browser = prompt("Choose ur browser","");
+//   if (Browser == "Edge"){
+//     alert("You've got the Edge!");
+//   }
+//   else if(Browser=="Chrome" || Browser=="Firefox" || Browser=="Safari" || Browser=="Opera"){
+//     alert( 'Okay we support these browsers too' );
+//   }
+//   else if(Browser== "Opera"){
+//     alert( 'Okay we support these browsers too' );
+//   }
+//   else{
+//     alert( 'We hope that this page looks ok!' );
+//   }
+
+
+// const number = +prompt('Введите число между 0 и 3', '');
+
+// if (number === 0) {
+//   alert('Вы ввели число 0');
+// }
+
+// if (number === 1) {
+//   alert('Вы ввели число 1');
+// }
+
+// if (number === 2 || number === 3) {
+//   alert('Вы ввели число 2, а может и 3');
+
+
+// const number = +prompt("Введите число","");
+//   switch(number){
+//     case 0:
+//         alert('Вы ввели число 0');
+//         break;
+//     case 1:
+//         alert('Вы ввели число 1');
+//         break;
+//     case 2:
+//     case 3:
+//         alert('Вы ввели число 2, а может и 3');
+//   };
+
+// function showMessage() {
+//     alert( 'Всем привет!' );
+//   };
+
+//   showMessage();
+
+
+// let userName = 'Вася';
+
+// function showMessage() {
+//   userName = "Петя"; // (1) изменяем значение внешней переменной
+
+//   let message = 'Привет, ' + userName;
+//   alert(message);
+// }
+
+// alert( userName ); // Вася перед вызовом функции
+
+// showMessage();
+
+// alert( userName ); // Петя, значение внешней переменной было изменено функцией
+//Но если захуярить let перед userName, создав новую локальную переменную, внешняя не поменяется.
+
+// let from; let text;
+// function showMessage(from, text) { // параметры: from, text
+//     alert(from + ': ' + text);
+//   }
+  
+//   showMessage('Аня', 'Привет!'); // Аня: Привет! (*)
+//   showMessage('Аня', "Как дела?"); // Аня: Как дела? (**)
+  
+//   alert(from);
+//   alert(text);
+
+
+
+
+
+//   function showMessage(from, text = "текст не добавлен") {
+//     alert( from + ": " + text );
+//   }
+  
+//   showMessage("Аня"); // Аня: текст не добавлен
+
+//   function showMessage(from, text = anotherFunction()) {
+    // anotherFunction() выполнится только если не передан text
+    // результатом будет значение text
+  //}
+
+//   function sum(a, b) {
+//     return a + b;
+//   }
+  
+//   let result = sum(1, 2);
+//   alert( result ); // 3
+//   alert(sum);
+//   alert(sum);
+
+function checkAge(age) {
+    if (age >= 18) {
+      return true;
+    } else {
+      return confirm('А родители разрешили?');
+    }
+  }
+  
+  let age = prompt('Сколько вам лет?', 18);
+  
+  if ( checkAge(age) ) {
+    alert( 'Доступ получен' );
+  } else {
+    alert( 'Доступ закрыт' );
+  }
+
+  function showMovie(age) {
+    if ( !checkAge(age) ) {
+      return;
+    }
+  
+    alert( "Вам показывается кино" ); // (*)
+    // ...
+  }
+  showMovie();
