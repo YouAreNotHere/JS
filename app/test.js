@@ -489,6 +489,7 @@
 //   }
   
 //   showMessage("Аня"); // Аня: текст не добавлен
+//  alert( showMessage() === undefined )
 
 //   function showMessage(from, text = anotherFunction()) {
     // anotherFunction() выполнится только если не передан text
@@ -504,28 +505,88 @@
 //   alert(sum);
 //   alert(sum);
 
-function checkAge(age) {
-    if (age >= 18) {
-      return true;
-    } else {
-      return confirm('А родители разрешили?');
-    }
-  }
-  
-  let age = prompt('Сколько вам лет?', 18);
-  
-  if ( checkAge(age) ) {
-    alert( 'Доступ получен' );
-  } else {
-    alert( 'Доступ закрыт' );
-  }
 
-  function showMovie(age) {
-    if ( !checkAge(age) ) {
-      return;
-    }
+// function checkAge(age) {
+//     age = prompt('Сколько вам лет?', 18);
+//     if (age >= 18) {
+//       alert( 'Доступ получен' );
+//       return true;
+//     } else {
+//       return confirm('А родители разрешили?');
+//     }
+//   }
+
+//   function showMovie(age) {
+//     if ( !checkAge(age) ) {
+//       alert( 'Доступ закрыт' );
+//       return;
+//     }
   
-    alert( "Вам показывается кино" ); // (*)
-    // ...
-  }
-  showMovie();
+//     alert( "Вам показывается кино" ); // (*)
+//     // ...
+//   }
+//   showMovie();
+
+
+// function showPrimes(n) {
+
+//   for (let i = 2; i < n; i++) {
+//     if (!isPrime(i)) continue;
+
+//     alert(i);  // простое
+//   }
+// }
+
+// function isPrime(j) {
+//   for (let i = 2; i < j; i++) {
+//     if ( j % i == 0) return false;
+//   }
+//   return true;
+// }
+
+// showPrimes(10);
+
+
+// function checkAge(age) {
+//   if (age > 18) {
+//     return true;
+//   } else {
+//     return confirm('Родители разрешили?');
+//   }
+// }
+
+
+// function checkAge(age) {
+//   age = prompt("How old a u?","");
+//   (age>17) || confirm("Родители разрешили?");
+// }
+
+// function checkAge(age) {
+//   age = prompt("How old a u?","");
+//   (age>17) ? alert("Well come to the gym, body!") : confirm("Родители разрешили?");
+// }
+
+// checkAge();
+
+// function min(a,b){
+//   return (a>b) ? a : b;
+// }
+// alert(min(101*3,52));
+
+
+function pow(x,n){
+  let z=x*x;
+    if (n>2){
+      for (;n>2;n--){
+        z=z*x;
+    } 
+ }
+ return z;
+};
+
+// function pow(x,n){
+// return x**n;
+// };
+
+
+alert(pow(3,12));
