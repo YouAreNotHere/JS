@@ -574,19 +574,193 @@
 // alert(min(101*3,52));
 
 
-function pow(x,n){
-  let z=x*x;
-    if (n>2){
-      for (;n>2;n--){
-        z=z*x;
-    } 
- }
- return z;
-};
+
+// var summation = function (num) {
+//   let x=num-1;
+//   let z=num+x;
+//   for (;1<num;num--){
+//     x-=1; 
+//     z+=x; 
+//   }
+//   return z;
+// }
+// alert(summation(5));
+
+
+// function sayHi(x,y) {   // (1) создаём
+//   alert( "Привет" );
+//   x=y+y;
+//   return(x);
+// }
+
+// let func = sayHi(1,2);    // (2) копируем
+
+// alert(func); // Привет     // (3) вызываем копию (работает)!
+// sayHi(); // Привет    //     эта тоже все ещё работает (почему бы и нет)
+
+
+
+
+// ask("Вы согласны?", showOk, showCancel);
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// function showOk() {
+//   alert( "Вы согласны." );
+// }
+
+// function showCancel() {
+//   alert( "Вы отменили выполнение." );
+// }
+
+// // использование: функции showOk, showCancel передаются в качестве аргументов ask
+
+
+
+//Мы можем переписать этот пример значительно короче, используя Function Expression:
+
+
+
+
+// ask(
+//   "Вы согласны?",
+//  function showOk() { alert("Вы согласились."); },
+//  function showError() { alert("Вы отменили выполнение."); }
+// );
+
+// showOk();
+
+
+
+
+// let ask = function (question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+
+// let age = prompt("Сколько Вам лет?", 18);
+
+// let welcome;
+
+// if (age < 18) {
+
+//   welcome = function() {
+//     alert("Привет!");
+//   };
+
+// } else {
+
+//   welcome = function() {
+//     alert("Здравствуйте!");
+//   };
+
+// }
+
+// welcome(); // теперь всё в порядке
+
+
+// function welcome(age){
+//   age = prompt("Сколько Вам лет?", 18);
+//   (age>17) ? alert("18+") : alert("18-");
+// }
+
+// welcome();
+
+
+
+//function getNumber(){
+//   let x = prompt("Write a number","");
+//   let n = prompt("Write pow of this number","");
+//   alert (pow(x,n));
+//   return x,n;
+// }
 
 // function pow(x,n){
-// return x**n;
+//   let z=x*x;
+//     if (n>2){
+//       for (;n>2;n--){
+//         z=z*x;
+//     } 
+//  }
+//  return z;
+// };
+// getNumber();
+
+
+// let sum = (a, b) => a + b;
+
+// /* Эта стрелочная функция представляет собой более короткую форму:
+
+// let sum = function(a, b) {
+//   return a + b;
+// };
+// */
+
+// alert( sum(1, 2) ); // 3
+
+
+// let age = prompt("Сколько Вам лет?", 18);
+
+// let welcome = (age < 18) ?
+//   () => alert('Привет!') :
+//   () => alert("Здравствуйте!");
+
+// welcome();
+
+
+// let sum = (a, b) => {  // фигурная скобка, открывающая тело многострочной функции
+//   let result = a + b;
+//   return result; // если мы используем фигурные скобки, то нам нужно явно указать "return"
 // };
 
+//alert( sum(1, 2) ); // 3
 
-alert(pow(3,12));
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+
+// let ask = (question, yes, no) => (confirm(question)) ? yes() : no();
+
+// ask(
+//   "Вы согласны?",
+//   () => { alert("Вы согласились."); },
+//   () => { alert("Вы отменили выполнение."); }
+// )
+
+  
+
+// alert("После этого сообщения ждите ошибку");
+
+// [1, 2].forEach(alert)
+
+//alert ("1"<"a");
+
+
+// function hello(name) {
+//   let phrase = `Привет, ${name}!`;
+
+//   debugger;  // <-- тут отладчик остановится
+
+//   say(phrase);
+// }
+
+
+
+// function hello(name) {
+//   let phrase = `Hello, ${name}!`;
+
+//   say(phrase);
+// }
+
+// function say(phrase) {
+//   alert(`** ${phrase} **`);
+//}
+
+
