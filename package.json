@@ -8,7 +8,8 @@
     "eclint": "eclint",
     "stylelint": "stylelint \"app/sass/blocks/*.scss\"",
     "stylelint:fix": "stylelint \"app/sass/blocks/*.scss\" --fix",
-    "test": "npm run editorconfig && npm run stylelint && npm run stylelint:fix"
+    "test": "npm run editorconfig && npm run stylelint && npm run stylelint:fix",
+    "mocha": "npm run mocha"
   },
   "author": "Anton",
   "license": "ISC",
@@ -39,6 +40,7 @@
     "gulp-webp": "^4.0.1",
     "imagemin-mozjpeg": "^5.1.0",
     "imagemin-pngquant": "^9.0.2",
+    "mocha": "^10.2.0",
     "sass": "^1.58.x",
     "stylelint": "^15.4.0",
     "stylelint-config-recommended-scss": "^10.0.0",

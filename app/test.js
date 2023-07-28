@@ -679,16 +679,78 @@
 //   return x,n;
 // }
 
-// function pow(x,n){
-//   let z=x*x;
-//     if (n>2){
-//       for (;n>2;n--){
-//         z=z*x;
+// function pow(x, n){
+//   let z = x * x;
+//     if (n > 2){
+//       for (;n > 2;n--){
+//         z = z * x;
 //     } 
 //  }
 //  return z;
 // };
-// getNumber();
+//getNumber();
+
+
+// describe("pow", function() {
+
+//   describe("возводит x в степень 3", function() {
+
+//     function makeTest(x) {
+//       let expected = x * x * x;
+//       it(`${x} в степени 3 будет ${expected}`, function() {
+//         assert.equal(pow(x, 3), expected);
+//       });
+//     }
+
+//     for (let x = 1; x <= 5; x++) {
+//       makeTest(x);
+//     }
+
+//   });
+
+//   describe("возводит x в степень 4", function() {
+
+//     function makeTest(x) {
+//       let expected = x * x * x * x;
+//       it(`${x} в степени 4 будет ${expected}`, function() {
+//         assert.equal(pow(x, 4), expected);
+//       });
+//     }
+
+//     for (let x = 1; x <= 5; x++) {
+//       makeTest(x);
+//     }
+
+//   });
+
+//   describe("pow", function() {
+
+//     // ...
+  
+//     it("для отрицательных n возвращает NaN", function() {
+//       assert.isNaN(pow(2, -1));
+//     });
+  
+//     it("для дробных n возвращает NaN", function() {
+//       assert.isNaN(pow(2, 1.5));
+//     });
+  
+//   });
+//   ... другие тесты. Можно писать и describe, и it блоки.
+//   describe("тест", function() {
+
+//     before(() => alert("Тестирование началось – перед тестами"));
+//     after(() => alert("Тестирование закончилось – после всех тестов"));
+  
+//     beforeEach(() => alert("Перед тестом – начинаем выполнять тест"));
+//     afterEach(() => alert("После теста – заканчиваем выполнение теста"));
+  
+//     it('тест 1', () => alert(1));
+//     it('тест 2', () => alert(2));
+  
+//   });
+// });
+
 
 
 // let sum = (a, b) => a + b;
@@ -764,3 +826,236 @@
 //}
 
 
+// let user = {     // объект
+//   name: "John",  // под ключом "name" хранится значение "John"
+//   age: 30,        // под ключом "age" хранится значение 30
+//   "suck Ass" : true
+// };
+
+// user.isAdmin = true;
+
+// alert(user.isAdmin);
+// delete user.age;
+// alert(user.suck Ass);
+
+//  let user = {
+//   key: "suck a dick",
+//  };
+
+// // присваивание значения свойству
+// user["likes birds"] = true;
+
+// // получение значения свойства
+// alert(user["likes birds"]); // true
+
+// // удаление свойства
+// delete user["likes birds"];
+
+
+// то же самое, что и user["likes birds"] = true;
+// user[key] = true;
+
+// alert(user["suck a dick"]);
+
+
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// let key = prompt("Что вы хотите узнать о пользователе?", "name");
+
+// // доступ к свойству через переменную
+// //Запись «через точку» такого не позволяет
+// alert( user[key] ); // John (если ввели "name")
+
+
+
+
+// let fruit = prompt("Какой фрукт купить?", "apple");
+
+// let bag = {
+//   [fruit]: 5, // имя свойства будет взято из переменной fruit
+// };
+
+// alert( bag.apple ); // 5, если fruit="apple"
+
+// let fruit = 'apple';
+// let bag = {
+//   [fruit + 'Computers']: 5 // bag.appleComputers = 5
+// };
+
+
+
+// function makeUser(name, age) {
+//   return {
+//     name: name,
+//     age: age
+//     // ...другие свойства
+//   };
+// }
+
+// let user = makeUser("John", 30);
+// alert(user.name); // John
+
+
+
+//Вместо name:name мы можем написать просто name:
+
+// function makeUser(name, age) {
+//   return {
+//     name, // то же самое, что и name: name
+//     age   // то же самое, что и age: age
+//     // ...
+//   };
+// }
+// //Мы можем использовать как обычные свойства, так и короткие в одном и том же объекте:
+
+// let user = {
+//   name,  // тоже самое, что и name:name
+//   age: 30
+// };
+
+
+// let obj = {
+// __proto__ : 5, // присвоим число
+// };
+// alert(obj.__proto__);
+
+
+
+// let user = { name: "John", age: 30 };
+
+// alert( "age" in user ); // true, user.age существует
+// alert( "blabla" in user ); // false, user.blabla не существует
+
+// let user = { age: 30 };
+
+// let key = "age";
+// alert( key in user ); // true, имя свойства было взято из переменной key
+
+
+// let user = {
+//   name: "John",
+//   age: 30,
+//   isAdmin: true
+// };
+
+// for (let huy in user) {
+//   // ключи
+//   alert( huy );  // name, age, isAdmin
+//   // значения ключей
+//   alert( user[huy] ); // John, 30, true
+// }
+
+
+// alert(Number("1.2")+2);
+
+
+
+
+// let user = {};
+// user.name = "John";
+// user.surName = "Smith";
+// user.name = "Pete";
+// delete user.name;
+
+// alert(user.surName);
+
+
+// let schedule = {};
+
+// schedule["8:30"] = "get up";
+
+// // alert( isEmpty(schedule) ); // false
+
+// let isEmpty = (schedule) => ("8:30" in schedule) ? false : true;
+
+// alert( isEmpty(schedule) ); // true
+
+
+// let schedule = {};
+
+// schedule["8:30"] = "get up";
+
+// let isEmpty = (schedule) => { for (let key in schedule){
+//   return false;
+// }
+// return true;
+// }
+
+// alert( isEmpty(schedule) ); // true
+
+
+
+// let salaries = {
+//   John: 100,
+//   Ann: 160,
+//   Pete: 130
+// }
+
+// let calculateSalaries = () => {
+//   let sum = salaries.John+salaries.Ann+salaries.Pete;
+//   for (let key in salaries){
+//     return sum;
+//   }
+//   return 0;
+// }
+
+//alert(calculateSalaries());
+
+// let salaries = {
+//   John: 100,
+//   //Ann: 160,
+//   Pete: 130
+// };
+
+// let sum = 0;
+// for (let key in salaries) {
+//   sum += salaries[key];
+// }
+
+// alert(salaries[key]); // 390
+
+
+
+// до вызова функции
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+// let multiplyNumeric = () => {
+// menu.width*=2;
+// menu.height*=2;
+// }
+
+// // // после вызова функции
+// // menu = {
+// //   width: 400,
+// //   height: 600,
+// //   title: "My menu"
+// // };
+
+// multiplyNumeric();
+// alert(menu.width);
+
+let multiplyNumeric = () => {
+  for (let key in menu){
+   if (typeof menu[key]===Number) {
+    menu[key]*=2;
+   }
+  }
+}
+multiplyNumeric();
+alert(menu.height);
+
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] == 'number') {
+      obj[key] *= 2;
+    }
+  }
+}
