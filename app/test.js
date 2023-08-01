@@ -1042,20 +1042,253 @@ let menu = {
 // multiplyNumeric();
 // alert(menu.width);
 
-let multiplyNumeric = () => {
-  for (let key in menu){
-   if (typeof menu[key]===Number) {
-    menu[key]*=2;
-   }
-  }
-}
-multiplyNumeric();
-alert(menu.height);
+// let multiplyNumeric = () => {
+//   for (let key in menu){
+//    if (typeof menu[key]==="Number") {
+//     menu[key]*=2;
+//    }
+//   }
+// }
+// multiplyNumeric();
+// alert(menu.height);
 
-function multiplyNumeric(obj) {
-  for (let key in obj) {
-    if (typeof obj[key] == 'number') {
-      obj[key] *= 2;
-    }
-  }
+// function multiplyNumeric(obj) {
+//   for (let key in obj) {
+//     if (typeof obj[key] == 'number') {
+//       obj[key] *= 2;
+//     }
+//   }
+// }
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// let clone = {}; // новый пустой объект
+
+// // давайте скопируем все свойства user в него
+// for (let key in user) {
+//   clone[key] = user[key];
+// }
+
+// // теперь clone это полностью независимый объект с тем же содержимым
+// clone.name = "Pete"; // изменим в нём данные
+
+// alert( user.name ); // все ещё John в первоначальном объекте
+
+
+// let user = { name: "John" };
+
+// let permissions1 = { canView: true };
+// let permissions2 = { canEdit: true };
+
+// // копируем все свойства из permissions1 и permissions2 в user
+// Object.assign(user, permissions1, permissions2);
+
+// // теперь user = { name: "John", canView: true, canEdit: true }
+
+
+// let user = { name: "John" };
+
+// Object.assign(user, { name: "Pete" });
+
+// alert(user.name); // теперь user = { name: "Pete" }
+
+
+// Мы также можем использовать Object.assign для замены цикла for..in для простого клонирования:
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// let clone = Object.assign({}, user);
+// Он копирует все свойства user в пустой объект и возвращает его.
+
+
+// let user = {
+//   name: "John",
+//   sizes: {
+//     height: 182,
+//     width: 50
+//   }
+// };
+
+// alert( user.sizes.height ); // 182
+
+
+// var objects = [{ 'a': 1 }, { 'b': 2 }];
+ 
+// var deep = _.cloneDeep(objects);
+// console.log(deep[0] === objects[0]);
+// // => false
+
+
+// function marry(man, woman) {
+//   woman.husband = man;
+//   man.wife = woman;
+
+//   return {
+//     father: man,
+//     mother: woman
+//   }
+// }
+
+// let family = marry({
+//   name: "John"
+// }, {
+//   name: "Ann"
+// });
+// Функция marry «женит» два объекта, давая им ссылки друг на друга, и возвращает новый объект, содержащий ссылки на два предыдущих.
+
+// В результате получаем такую структуру памяти:
+
+// let user = {
+//   name: "John",
+//   age: 30
+// };
+
+// user.sayHi = function() {
+//   alert("Привет!");
+// };
+
+// user.sayHi(); // Привет!
+
+// Конечно, мы могли бы использовать заранее объявленную функцию в качестве метода, вот так:
+
+// let user = {
+//   // ...
+// };
+
+// // сначала, объявляем
+// function sayHi() {
+//   alert("Привет!");
+// }
+
+// // затем добавляем в качестве метода
+// user.sayHi = sayHi;
+
+// user.sayHi(); // Привет!
+
+
+// эти объекты делают одно и то же
+
+// user = {
+//   sayHi: function() {
+//     alert("Привет");
+//   }
+// };
+
+// // сокращённая запись выглядит лучше, не так ли?
+// user = {
+//   sayHi() { // то же самое, что и "sayHi: function(){...}"
+//     alert("Привет");
+//   }
+// };
+
+
+// let user = {
+//   name: "John",
+//   age: 30,
+
+//   sayHi() {
+//     // "this" - это "текущий объект".
+//     alert(this.name);
+//   }
+
+// };
+
+// user.sayHi(); // John
+
+
+// let user = { name: "John" };
+// let admin = { name: "Admin" };
+
+// function sayHi() {
+//   alert( this.name );
+// }
+
+// // используем одну и ту же функцию в двух объектах
+// user.f = sayHi;
+// admin.f = sayHi;
+
+// // эти вызовы имеют  разное значение this
+// // "this" внутри функции - это объект "перед точкой"
+// user.f(); // John  (this == user)
+// admin.f(); // Admin  (this == admin)
+
+// admin['f'](); // Admin (нет разницы между использованием точки или квадратных скобок для доступа к объекту)
+
+
+// let user = {
+//   name : "Pidor",
+//   fuckYou : function() {
+//     alert(`Fuck you ${this.name}`);
+//   }
+// }
+
+// user.fuckYou();
+
+// let user = {
+//   firstName: "Ilya",
+//   sayHi() {
+//     let arrow = () => alert(this.firstName);
+//     arrow();
+//   }
+// };
+
+// user.sayHi(); // Ilya
+// Это особенность стрелочных функций. Она полезна, когда мы на самом деле не хотим иметь отдельное this, а скорее хотим взять его из внешнего контекста. Позже в главе Повторяем стрелочные функции мы увидим больше примеров на эту тему.
+
+
+// function makeUser() {
+//   return {
+//     name: "John",
+//     ref() {
+//       return this;
+//     }
+//   };
+// }
+
+// let user = makeUser();
+
+// alert( user.ref().name ); // John
+
+let calculator = {
+  userFunction : prompt("Сложение, вычитание, деление или умножение?",""),
+
+  firstNumber : Number(prompt(`Введиие первое число для того, чтобы совершить ${this.userFunction}`,"")),
+  secondNumber : Number(prompt(`Введиие второе число для того, чтобы совершить ${this.userFunction}`,"")),
+
+  sum () {
+    return this.secondNumber+this.firstNumber
+  },
+
+  mul () {
+    return this.firstNumber*this.secondNumber
+  },
+
+  minus (){
+    return this.firstNumber-this.secondNumber
+  },
+
+  dash (){
+    return this.firstNumber/this.secondNumber
+  },
+
+calculate (){
+if ((this.userFunction === "сложение") || (this.userFunction === "Сложение")) { 
+  alert(this.sum())
+} if ((this.userFunction === "умножение") || (this.userFunction === "Умножение")) {
+ alert(this.mul())
 }
+if ((this.userFunction === "вычетание") || (this.userFunction === "Вычетание")){
+  alert(this.minus())
+}
+if ((this.userFunction === "деление") || (this.userFunction === "Деление")){
+  alert(this.dash())
+}
+}
+}
+calculator.calculate();
