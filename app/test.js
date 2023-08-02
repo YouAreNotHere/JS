@@ -1255,40 +1255,200 @@ let menu = {
 
 // alert( user.ref().name ); // John
 
-let calculator = {
-  userFunction : prompt("Сложение, вычитание, деление или умножение?",""),
+// let calculator = {
+//   userFunction : prompt("Сложение, вычитание, деление или умножение?",""),
 
-  firstNumber : Number(prompt(`Введиие первое число для того, чтобы совершить ${this.userFunction}`,"")),
-  secondNumber : Number(prompt(`Введиие второе число для того, чтобы совершить ${this.userFunction}`,"")),
+//   firstNumber : Number(prompt(`Введиие первое число для того, чтобы совершить ${this.userFunction}`,"")),
+//   secondNumber : Number(prompt(`Введиие второе число для того, чтобы совершить ${this.userFunction}`,"")),
 
-  sum () {
-    return this.secondNumber+this.firstNumber
+//   sum () {
+//     return this.secondNumber+this.firstNumber
+//   },
+
+//   mul () {
+//     return this.firstNumber*this.secondNumber
+//   },
+
+//   minus (){
+//     return this.firstNumber-this.secondNumber
+//   },
+
+//   dash (){
+//     return this.firstNumber/this.secondNumber
+//   },
+
+// calculate (){
+// if ((this.userFunction === "сложение") || (this.userFunction === "Сложение")) { 
+//   alert(this.sum())
+// } if ((this.userFunction === "умножение") || (this.userFunction === "Умножение")) {
+//  alert(this.mul())
+// }
+// if ((this.userFunction === "вычетание") || (this.userFunction === "Вычетание")){
+//   alert(this.minus())
+// }
+// if ((this.userFunction === "деление") || (this.userFunction === "Деление")){
+//   alert(this.dash())
+// }
+// // else{
+// //   alert("Ты, по-моему, что-то перепутала.")
+// // }
+// }
+// }
+// calculator.calculate();
+
+
+
+// Решение состоит в том, чтобы возвращать сам объект из каждого вызова.
+
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//     return this;
+//   },
+//   down() {
+//     this.step--;
+//     return this;
+//   },
+//   showStep() {
+//     alert( this.step );
+//     return this;
+//   }
+// };
+
+// ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
+
+
+// function User(name) {
+//   this.name = name;
+//   this.isAdmin = false;
+// }
+
+// let user = new User("Jack");
+
+// alert(user.name); // Jack
+// alert(user.isAdmin); // false
+
+
+
+// Другими словами, new User(...) делает что-то вроде:
+
+// function User(name) {
+//   // this = {};  (неявно)
+
+//   // добавляет свойства к this
+//   this.name = name;
+//   this.isAdmin = false;
+
+//   // return this;  (неявно)
+//}
+
+
+// Если в нашем коде присутствует большое количество строк, создающих один сложный объект, то мы можем обернуть их в функцию-конструктор, которая будет немедленно вызвана, вот так:
+
+// // создаём функцию и сразу же вызываем её с помощью new
+// let user = new function() {
+//   this.name = "John";
+//   this.isAdmin = false;
+
+//   // ...другой код для создания пользователя
+//   // возможна любая сложная логика и инструкции
+//   // локальные переменные и так далее
+//};
+
+// Такой конструктор не может быть вызван снова, так как он нигде не сохраняется, просто создаётся и тут же вызывается. 
+// Таким образом, этот трюк направлен на инкапсуляцию кода, который создаёт отдельный объект, 
+// без возможности повторного использования в будущем.
+
+
+// function User() {
+//   alert(new.target);
+// }
+
+// // без "new":
+// User(); // undefined
+
+// // с "new":
+// new User(); // function User { ... }
+
+
+// Также мы можем сделать, чтобы вызовы с new и без него делали одно и то же:
+
+// function User(name) {
+//   if (!new.target) { // в случае, если вы вызвали меня без оператора new
+//     return new User(name); // ...я добавлю new за вас
+//   }
+
+//   this.name = name;
+// }
+
+// let john = User("John"); // переадресовывает вызов на new User
+// alert(john.name); // John
+
+
+// При вызове return с объектом, вместо this вернётся объект.
+// При вызове return с примитивным значением, оно проигнорируется.
+// Другими словами, return с объектом возвращает этот объект, во всех остальных случаях возвращается this.
+
+// К примеру, здесь return замещает this, возвращая объект:
+
+// function BigUser() {
+
+//   this.name = "John";
+
+//   return { name: "Godzilla" };  // <-- возвращает этот объект
+// }
+
+// alert( new BigUser().name );  // Godzilla, получили этот объект
+
+// А вот пример с пустым return (или мы могли бы поставить примитив после return, неважно):
+
+// function SmallUser() {
+
+//   this.name = "John";
+
+//   return; // <-- возвращает this
+// }
+
+// alert( new SmallUser().name );  // John
+
+
+
+// function User(name) {
+//   this.name = name;
+
+//   this.sayHi = function() {
+//     alert( "Меня зовут: " + this.name );
+//   };
+// }
+
+// let john = new User("John");
+
+// john.sayHi(); // Меня зовут: John
+
+/*
+john = {
+   name: "John",
+   sayHi: function() { ... }
+}
+*/
+
+
+
+function Calculator (a,b){
+  read (){
+  this.a : Number(prompt("Press first number","")),
+  this.b : Number(prompt("Press second number","")),
   },
-
-  mul () {
-    return this.firstNumber*this.secondNumber
+  sum{
+    return this.a + this.b
   },
-
-  minus (){
-    return this.firstNumber-this.secondNumber
+  mul {
+    return this.a * this.b
   },
+}
+let calculator = new Calculator();
+calculator.read();
 
-  dash (){
-    return this.firstNumber/this.secondNumber
-  },
-
-calculate (){
-if ((this.userFunction === "сложение") || (this.userFunction === "Сложение")) { 
-  alert(this.sum())
-} if ((this.userFunction === "умножение") || (this.userFunction === "Умножение")) {
- alert(this.mul())
-}
-if ((this.userFunction === "вычетание") || (this.userFunction === "Вычетание")){
-  alert(this.minus())
-}
-if ((this.userFunction === "деление") || (this.userFunction === "Деление")){
-  alert(this.dash())
-}
-}
-}
-calculator.calculate();
+alert( "Sum=" + calculator.sum() );
+alert( "Mul=" + calculator.mul() );
