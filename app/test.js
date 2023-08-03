@@ -1435,20 +1435,20 @@ john = {
 
 
 
-function Calculator (a,b){
-  read (){
-  this.a : Number(prompt("Press first number","")),
-  this.b : Number(prompt("Press second number","")),
-  },
-  sum{
-    return this.a + this.b
-  },
-  mul {
-    return this.a * this.b
-  },
-}
-let calculator = new Calculator();
-calculator.read();
+// function Calculator (a,b){
+//   read (){
+//   this.a : Number(prompt("Press first number","")),
+//   this.b : Number(prompt("Press second number","")),
+//   },
+//   sum{
+//     return this.a + this.b
+//   },
+//   mul {
+//     return this.a * this.b
+//   },
+// }
+// let calculator = new Calculator();
+// calculator.read();
 
-alert( "Sum=" + calculator.sum() );
-alert( "Mul=" + calculator.mul() );
+// alert( "Sum=" + calculator.sum() );
+// alert( "Mul=" + calculator.mul() );
