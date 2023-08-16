@@ -274,3 +274,200 @@
 // Работает с NaN: Object.is(NaN, NaN) === true, здесь он хорош.
 // Значения 0 и -0 разные: Object.is(0, -0) === false, это редко используется, но технически эти значения разные.
 // Во всех других случаях Object.is(a, b) идентичен a === b.
+
+
+//alert( parseInt('a123') ); // NaN, на первом символе происходит остановка чтения
+
+// function mul () {
+//     let x = Number(prompt("Press x",""));
+//     let y = Number(prompt("Press y",""));
+//     let z = x*y;
+//     alert(z);
+// }
+// mul();
+
+// function readNumber (){
+//     for (let x;isNaN(x);){
+//     x = prompt("Введи число","");
+//     if (x === null) return null;
+//     if (isFinite(x)) return x;
+//     }
+//     return x;
+// }
+// alert(readNumber());
+
+
+// let i = 0;
+// while (i != 10) {
+//   i += 0.2;
+// }
+
+// function random(min, max) {
+//     return Math.round(min + (Math.random() * Math.random()) * (max - min));
+//   }
+  
+//   alert( random(1, 5) );
+//   alert( random(3, 5) );
+//   alert( random(5, 7) );
+
+
+//   let str = `Hello`;
+
+// // получаем первый символ
+// alert( str[0] ); // H
+// alert( str.at(0) ); // H
+
+// // получаем последний символ
+// alert( str[str.length - 1] ); // o
+// alert( str.at(-1) ); // o
+
+// let str = `Hello`;
+
+// alert( str[-2] ); // undefined
+// alert( str.at(-2) ); // l
+
+
+//Также можно перебрать строку посимвольно, используя for..of:
+// let str = "hello";
+
+// for (let char of str) {
+//   alert(char); // H,e,l,l,o (char — сначала "H", потом "e", потом "l" и т.д.)
+
+
+
+//   Можно создать новую строку и записать её в ту же самую переменную вместо старой.
+
+// Например:
+
+// let str = 'Hi';
+
+// str = 'h' + str[1]; // заменяем строку
+
+// alert( str ); // hi
+// }
+
+// alert( 'Interface'[0].toLowerCase() ); // 'i'
+
+
+
+// let str = 'Widget with something id \n pizda';
+// alert(str);
+
+// alert( str.indexOf('Widget') ); // 0, потому что подстрока 'Widget' найдена в начале
+// //alert( str.indexOf('widget') ); // -1, совпадений нет, поиск чувствителен к регистру
+
+// alert( str.indexOf("id") ); // 1, подстрока "id" найдена на позиции 1 (..idget with id)
+// alert( str.indexOf("pizda") );
+// alert( str.indexOf("something") );
+// alert( str.indexOf("with") );
+
+// Например, первое вхождение "id" — на позиции 1. Для того, чтобы найти следующее, начнём поиск с позиции 2:
+
+// let str = 'Widget with id';
+
+// alert( str.indexOf('id', 2) ) // 12
+
+
+// Чтобы найти все вхождения подстроки, нужно запустить indexOf в цикле. Каждый раз, получив очередную позицию, начинаем новый поиск со следующей:
+
+// let str = 'Ослик Иа-Иа посмотрел на виадук';
+
+// let target = 'Иа'; // цель поиска
+
+// let pos = 0;
+// while (true) {
+//   let foundPos = str.indexOf(target, pos);
+//   if (foundPos == -1) break;
+
+//   alert( `Найдено тут: ${foundPos}` );
+//   pos = foundPos + 1; // продолжаем со следующей позиции
+//}
+
+// Тот же алгоритм можно записать и короче:
+
+// let str = "Ослик Иа-Иа посмотрел на виадук";
+// let target = "Иа";
+
+// let pos = -1;
+// while ((pos = str.indexOf(target, pos + 1)) != -1) {
+//   alert( pos );
+// }
+
+// Также есть похожий метод str.lastIndexOf(substr, position), который ищет с конца строки к её началу.
+
+// Он используется тогда, когда нужно получить самое последнее вхождение: перед концом строки или начинающееся до (включительно) определённой позиции.
+
+// Мы ищем подстроку "Widget", и она здесь есть, прямо на позиции 0. Но alert не показывается, т. к. str.indexOf("Widget") возвращает 0, и if решает, что тест не пройден.
+
+// Поэтому надо делать проверку на -1:
+
+// let str = "Widget with id";
+
+// if (str.indexOf("Widget") != -1) {
+//     alert("Совпадение есть"); // теперь работает
+// }
+
+
+// Таким образом, ~n равняется 0 только при n == -1 (для любого n, входящего в 32-разрядные целые числа со знаком).
+
+// Соответственно, прохождение проверки if ( ~str.indexOf("…") ) означает, что результат indexOf отличен от -1, совпадение есть.
+
+// Это иногда применяют, чтобы сделать проверку indexOf компактнее:
+
+// let str = "Widget";
+
+// if (~str.indexOf("Widget")) {
+//   alert( 'Совпадение есть' ); // работает
+// }
+
+
+
+// function unFirst(str) {
+//   let firstStrPart = str.slice(0,1);
+//   let secondStrPart = str.slice(1);
+//   firstStrPart = firstStrPart.toUpperCase();
+//   str = firstStrPart + secondStrPart;
+//   return str;
+// }
+
+// alert(unFirst("abhazia"));
+
+//БОЛЕЕ ЭЛЕГАНТНЫЙ ВАРИАНТ
+// function ucFirst(str) {
+//   if (!str) return str;
+
+//   return str[0].toUpperCase() + str.slice(1);
+// }
+
+// alert( ucFirst("вася") ); // Вася
+
+
+// function checkSpam(messege){
+//   messege = messege.toLowerCase();
+//   if ((messege.includes("viagra")) || (messege.includes("xxx"))){
+//     return true;
+//     };
+//       return false;
+//   };
+
+//   alert(checkSpam("vIagra"));
+
+
+// function truncate(str, maxlength){
+//   newStr = str.slice(0,maxlength-1);
+//   if ((str.localeCompare(newStr))===1){
+//   alert((str.slice(0,maxlength-1))+"...");
+//   } else {
+//     alert (str);
+//   }
+// }
+
+// truncate("Вот, что мне хотелось бы сказать на эту тему:", 1000);
+
+
+function extractCurrencyValue(str){
+  return +str.slice(1);
+  return +str;
+}
+
+alert((extractCurrencyValue("$5000")+15))
