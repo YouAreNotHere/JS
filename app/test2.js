@@ -465,9 +465,145 @@
 // truncate("Вот, что мне хотелось бы сказать на эту тему:", 1000);
 
 
-function extractCurrencyValue(str){
-  return +str.slice(1);
-  return +str;
+// function extractCurrencyValue(str){
+//   return +str.slice(1);
+//   return +str;
+// }
+
+// alert((extractCurrencyValue("$5000")+15))
+
+
+
+
+
+// //Массивы
+// let arr = new Array();
+// let arr = [];
+
+
+// let fruits = ["Яблоко", "Апельсин", "Слива"];
+
+// alert( fruits[0] ); // Яблоко
+// alert( fruits[1] ); // Апельсин
+// alert( fruits[2] ); // Слива
+// fruits[2] = 'Груша'; // теперь ["Яблоко", "Апельсин", "Груша"]
+
+// let fruits = ["Яблоко", "Апельсин", "Слива"];
+
+// alert( fruits.length ); // 3
+// alert( fruits ); // Яблоко, Апельсин, Слива
+
+// // разные типы значений
+// let arr = [ 'Яблоко', { name: 'Джон' }, true, function() { alert('привет'); } ];
+
+// // получить элемент с индексом 1 (объект) и затем показать его свойство
+// alert( arr[1].name ); // Джон
+
+// // получить элемент с индексом 3 (функция) и выполнить её
+// arr[3](); // привет
+
+
+
+// let fruits = ["Apple", "Orange", "Plum"];
+// // то же самое, что и fruits[fruits.length-1]
+// alert( fruits.at(-1) ); // Plum
+
+
+// let fruits = ["Яблоко", "Апельсин", "Груша"];
+
+// alert( fruits.pop() ); // удаляем "Груша" и выводим его
+
+// alert( fruits ); // Яблоко, Апельсин
+
+
+
+
+// let fruits = ["Яблоко", "Апельсин"];
+
+// fruits.push("Груша");
+
+// alert( fruits ); // Яблоко, Апельсин, Груша
+
+
+
+
+// let fruits = ["Яблоко", "Апельсин", "Груша"];
+
+// alert( fruits.shift() ); // удаляем Яблоко и выводим его
+
+// alert( fruits ); // Апельсин, Груша
+
+
+// let fruits = ["Апельсин", "Груша"];
+
+// fruits.unshift('Яблоко');
+
+// alert( fruits ); // Яблоко, Апельсин, Груша
+
+
+// let fruits = ["Яблоко"];
+
+// fruits.push("Апельсин", "Груша");
+// fruits.unshift("Ананас", "Лимон");
+
+// // ["Ананас", "Лимон", "Яблоко", "Апельсин", "Груша"]
+// alert( fruits );
+
+// Варианты неправильного применения массива:
+
+// Добавление нечислового свойства, например: arr.test = 5.
+// Создание «дыр», например: добавление arr[0], затем arr[1000] (между ними ничего нет).
+// Заполнение массива в обратном порядке, например: arr[1000], arr[999] и т.д.
+
+
+// let arr = ["Яблоко", "Апельсин", "Груша"];
+
+// for (let i = 0; i < arr.length; i++) {
+//   alert( arr[i] );
+// }
+
+//Но для массивов возможен и другой вариант цикла, for..of:
+
+// let fruits = ["Яблоко", "Апельсин", "Слива"];
+
+// // проходит по значениям
+// for (let fruit of fruits) {
+//   alert( fruit );
+// }
+
+// alert(fruits.length);
+
+
+// let arr = [1, 2, 3, 4, 5];
+
+// arr.length = 2; // укорачиваем до двух элементов
+// alert( arr ); // [1, 2]
+
+// arr.length = 5; // возвращаем length как было
+// alert( arr[3] ); // undefined: значения не восстановились
+
+
+// let matrix = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// alert( matrix[0][1] ); // 5, центральный элемент
+
+// let arr = [1, 2, 3];
+
+// alert( arr ); // 1,2,3
+// alert( String(arr) === '1,2,3' ); // true
+
+
+function arrCicle(){
+    let arr = ["Яблоко", "Апельсин", "Груша"];
+
+for (let fruit of arr) {
+  return fruit;
 }
 
-alert((extractCurrencyValue("$5000")+15))
+}
+
+alert(arrCicle());
