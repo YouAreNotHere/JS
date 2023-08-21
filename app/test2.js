@@ -597,13 +597,71 @@
 // alert( String(arr) === '1,2,3' ); // true
 
 
-function arrCicle(){
-    let arr = ["Яблоко", "Апельсин", "Груша"];
+// function arrCicle(){
+//     let arr = ["Яблоко", "Апельсин", "Груша"];
 
-for (let fruit of arr) {
-  return fruit;
+// for (let fruit of arr) {
+//   return fruit;
+// }
+
+// }
+
+// alert(arrCicle());
+
+
+// let styles = [
+//   "Jazz",
+//   "Bluzz",
+// ]
+
+// styles.push("RockNRoll");
+// styles[1] = "Classic";
+// alert(styles.shift());
+// styles.unshift("Reggy");
+// styles.unshift("Rap");
+// alert(styles);
+
+
+// let arr = ["a", "b"];
+
+// arr.push(function() {
+//   alert( this );
+// });
+
+// arr[2](); // ?
+
+
+
+//for (let num;num ?? true;){
+//  for (let num;((num === undefined) || (num === null));){
+// function sumInput(){
+//   let x = 0;
+//   let arr = [];
+//   for (let num;(!(num === undefined) || !(num === null));){
+//   num = prompt("Press number","");
+//   if ((num === undefined) || (num === null)) break;
+//   num = +num;
+//   arr.push(num);
+//   };
+//   // for (let key = 0; key < arr.length; key++){
+//   //   x += arr[key];
+//   // };
+//   for (let key of arr){
+//     x+=key;
+//   };
+//   return x;
+// }
+
+// alert(sumInput());
+
+
+arr = [1, -2, 3, 4, -9, 6];
+
+function getMaxSubSum(arr){
+  let x = 0;
+  let n = 0;
+  for (let i = 0; i < (arr.length-n); i++){
+    x += arr[i];
+    //Похоже нужен второй цикл, уменьшаюший length 
+  }
 }
-
-}
-
-alert(arrCicle());
