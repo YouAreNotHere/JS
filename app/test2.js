@@ -655,13 +655,59 @@
 // alert(sumInput());
 
 
-arr = [1, -2, 3, 4, -9, 6];
 
-function getMaxSubSum(arr){
-  let x = 0;
-  let n = 0;
-  for (let i = 0; i < (arr.length-n); i++){
-    x += arr[i];
-    //Похоже нужен второй цикл, уменьшаюший length 
+// function getMaxSubSum(){
+//   let zhopa = [];
+//   let arr = [1, 21, 33, -54, -29, 76];
+//   if ((Math.max(...arr)<0)) {
+//     alert(0);
+//     return
+//   }
+//   for (let x = 0; 0 < arr.length;){
+//     x = 0;
+//   for (let i = 0; i < arr.length; i++){
+//     x += arr[i];
+//     zhopa.push(x);
+//   }
+//     zhopa.push(x);
+//     //alert(x);
+//     arr.shift();
+//     //alert(arr);
+// }
+//   alert(Math.max(...zhopa));
+// }
+
+// getMaxSubSum();
+
+// Более элегантный вариант
+// function getMaxSubSum(arr) {
+//   let maxSum = 0; // если элементов не будет - возвращаем 0
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let sumFixedStart = 0;
+//     for (let j = i; j < arr.length; j++) {
+//       sumFixedStart += arr[j];
+//       maxSum = Math.max(maxSum, sumFixedStart);
+//     }
+//   }
+
+//   return maxSum;
+// }
+
+
+
+function getMaxSubSum() {
+  let arr = [1,-2,3,-4,-5]
+  let maxSum = 0;
+  let partialSum = 0;
+
+  for (let item of arr) { // для каждого элемента массива
+    partialSum += item; // добавляем значение элемента к partialSum
+    maxSum = Math.max(maxSum, partialSum); // запоминаем максимум на данный момент
+    if (partialSum < 0) partialSum = 0; // ноль если отрицательное
   }
+
+  return maxSum;
 }
+
+alert(getMaxSubSum());
