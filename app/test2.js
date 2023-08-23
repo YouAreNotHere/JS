@@ -697,7 +697,7 @@
 
 
 function getMaxSubSum() {
-  let arr = [1,-2,3,-4,-5]
+  let arr = [-100,202,-3,-4,15]
   let maxSum = 0;
   let partialSum = 0;
 
