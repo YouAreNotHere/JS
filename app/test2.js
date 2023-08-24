@@ -696,18 +696,36 @@
 
 
 
-function getMaxSubSum() {
-  let arr = [-100,202,-3,-4,15]
-  let maxSum = 0;
-  let partialSum = 0;
+// function getMaxSubSum() {
+//   let arr = [-100,202,-3,-4,15]
+//   let maxSum = 0;
+//   let partialSum = 0;
 
-  for (let item of arr) { // для каждого элемента массива
-    partialSum += item; // добавляем значение элемента к partialSum
-    maxSum = Math.max(maxSum, partialSum); // запоминаем максимум на данный момент
-    if (partialSum < 0) partialSum = 0; // ноль если отрицательное
-  }
+//   for (let item of arr) { // для каждого элемента массива
+//     partialSum += item; // добавляем значение элемента к partialSum
+//     maxSum = Math.max(maxSum, partialSum); // запоминаем максимум на данный момент
+//     if (partialSum < 0) partialSum = 0; // ноль если отрицательное
+//   }
 
-  return maxSum;
-}
+//   return maxSum;
+// }
 
-alert(getMaxSubSum());
+// alert(getMaxSubSum());
+
+
+// let arr = [1, 2, 5];
+
+// // начиная с индекса -1 (перед последним элементом)
+// // удалить 0 элементов,
+// // затем вставить числа 3 и 4
+// arr.splice(-0, 0, 3, 4);
+
+// alert( arr ); // 1,2,3,4,5
+
+
+
+let arr = ["t", "e", "s", "t"];
+
+alert( arr.slice(1, 4) ); // e,s (копирует с 1 до 3)
+
+alert( arr.slice(-2) ); // s,t (копирует с -2 до конца)
