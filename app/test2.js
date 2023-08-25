@@ -724,8 +724,65 @@
 
 
 
-let arr = ["t", "e", "s", "t"];
+// let arr = ["t", "e", "s", "t"];
 
-alert( arr.slice(1, 4) ); // e,s (копирует с 1 до 3)
+// alert( arr.slice(1, 4) ); // e,s (копирует с 1 до 3)
 
-alert( arr.slice(-2) ); // s,t (копирует с -2 до конца)
+// alert( arr.slice(-2) ); // s,t (копирует с -2 до конца)
+
+
+
+// ["Бильбо", "Гэндальф", "Назгул"].forEach((item, index, array) => {
+//   alert(`У ${item} индекс ${index} в ${array}`);
+// });
+
+
+
+// let arr = [1, 0, false];
+
+// alert( arr.indexOf(0) ); // 1
+// alert( arr.indexOf(false) ); // 2
+// alert( arr.indexOf(null) ); // -1
+
+// alert( arr.includes(1) ); // true
+
+
+// let fruits = ['Яблоко', 'Апельсин', 'Яблоко']
+
+// alert( fruits.indexOf('Яблоко') ); // 0 (первый 'Яблоко')
+// alert( fruits.lastIndexOf('Яблоко') ); // 2 (последний 'Яблоко')
+
+
+// let users = [
+//   {id: 1, name: "Вася"},
+//   {id: 2, name: "Петя"},
+//   {id: 3, name: "Маша"}
+// ];
+
+// let user = users.find(item => item.id == 1);
+
+// alert(user.name); // Вася
+
+
+// let users = [
+//   {id: 1, name: "Вася"},
+//   {id: 2, name: "Петя"},
+//   {id: 3, name: "Маша"}
+// ];
+
+// // возвращает массив, состоящий из двух первых пользователей
+// let someUsers = users.filter(item => item.id < 3);
+
+// alert(someUsers.length); // 2
+
+
+// Например, здесь мы преобразуем каждый элемент в его длину:
+
+// let lengths = ["Бильбо", "Гэндальф", "Назгул"].map(item => item.length);
+// alert(lengths); // 6,8,6
+
+
+let arr = ["Zalupa", "chlen", "her","penis"];
+
+let pizda = arr.map(ite => ite + "Pizda");
+alert(pizda);
