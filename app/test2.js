@@ -782,7 +782,210 @@
 // alert(lengths); // 6,8,6
 
 
-let arr = ["Zalupa", "chlen", "her","penis"];
+//let arr = ["Zalupa", "chlen", "her","penis"];
 
-let pizda = arr.map(ite => ite + "Pizda");
-alert(pizda);
+// // let pizda = arr.map(ite => ite + "Pizda");
+// // alert(pizda);
+
+// let huy = arr.forEach(function item(){item + "huy"});
+// alert(huy);
+
+
+// let countries = ['Österreich', 'Andorra', 'Vietnam'];
+
+// alert( countries.sort( (a, b) => a > b ? 1 : -1) ); // Andorra, Vietnam, Österreich (неправильно)
+
+// alert( countries.sort( (a, b) => a.localeCompare(b) ) ); // Andorra,Österreich,Vietnam (правильно!)
+
+
+// let names = 'Вася, Петя, Маша';
+
+// let arr = names.split(', ');
+
+// for (let name of arr) {
+//   alert( `Сообщение получат: ${name}.` ); // Сообщение получат: Вася (и другие имена)
+// }
+
+// Вызов split(s) с пустым аргументом s разбил бы строку на массив букв:
+
+// let str = "тест";
+
+// alert( str.split('') ); // т,е,с,т
+
+
+// let arr = ['Вася', 'Петя', 'Маша'];
+
+// let str = arr.join(';'); // объединить массив в строку через ;
+
+// alert( str ); // Вася;Петя;Маша
+
+
+
+
+// let arr = [1, 2, 3, 4, 5];
+
+// let result = arr.reduce((sum, current) => sum + current, 0);
+
+// alert(result); // 15
+
+
+// alert(Array.isArray({})); // false
+
+// alert(Array.isArray([])); // true
+
+
+// let army = {
+//     minAge: 18,
+//     maxAge: 27,
+//     canJoin(user) {
+//       return user.age >= this.minAge && user.age < this.maxAge;
+//     }
+//   };
+  
+//   let users = [
+//     {age: 16},
+//     {age: 20},
+//     {age: 23},
+//     {age: 30}
+//   ];
+  
+//   // найти пользователей, для которых army.canJoin возвращает true
+//   let soldiers = users.filter(army.canJoin, army);
+  
+//   alert(soldiers.length); // 2
+//   alert(soldiers[0].age); // 20
+
+
+
+// let users = [
+//     {id: 1, name: "Вася"},
+//     {id: 2, name: "Петя"},
+//     {id: 3, name: "Маша"}
+//   ];
+  
+//   let user = users.find(function item () {item.id == 1});
+  
+//   alert(user.name); // Вася
+
+
+
+
+// let str = "zhopa-huy-govno"
+
+// function camelize(){
+//     let arr = str
+//     .split("-")
+//     .map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1))
+//     .join("");
+//     alert(arr);
+// }
+
+// camelize();
+
+
+
+
+
+// function filterRange(arr,a,b){
+//     let newArr = arr.filter(function chooseItem(item){
+//        if ( item <= b && item >= a){
+//         return item
+//        } 
+//     })
+//     alert(newArr);
+// }
+
+// filterRange([1,2,3,4,5,6,7,8,9,10], 4,8);
+//filterRange([1,2,3,4,5,6,7,8,9,10],2,5);
+
+
+// let arr = [1,2,3,4,5,6,7,8,9,10];
+// let a = 4;
+// let b = 7;
+
+// function filterRangeInPlace(){
+//    arr = arr.map(function changeArrInAround(item){
+//         if ( item <= b && item >= a){
+//             return item 
+// }
+// })
+// alert(arr);
+// }
+
+
+// function filterRangeInPlace(){
+//    arr = arr.splice(0,(a-1));
+//    arr = arr.slice(-1,b);
+// alert(arr);
+// }
+
+//filterRangeInPlace();
+// alert(arr);
+
+//alert(filterRangeInPlace());
+
+
+//let arr = ["HTML", "JavaScript", "CSS"];
+
+//let arr = [-1,2,-3,55,66,-7,-88,9,101];
+
+// let copySorted = (arr) => {
+// return arr
+// .slice()
+// .sort((a, b) => (b-a))
+// }
+// alert(copySorted(arr));
+// alert(arr);
+
+
+// function makeUser(name, age) {
+//   return {
+//     name: name,
+//     age: age
+//     // ...другие свойства
+//   };
+// }
+
+// let user = makeUser("John", 30);
+// alert(user.name); // John
+
+
+//let str = "1 - 3";
+// function Calculator (str){
+// calculate (str) {
+//     //let str = prompt("Ведите то, что нужно посчитать","1 + 3");
+//   let newArr = str.split(" ");
+//   return (newArr[1] == "+") ? (+newArr[0] + +newArr[2]) : (+newArr[0] - +newArr[2]);
+// }
+// }
+// alert(Calculator.calculate("1 + 4"));
+
+
+// someArr = ["Яблоко", "Слива", "Хуй"];
+// alert(someArr.includes("Хуй"));
+// alert("Хуй" in someArr);
+
+
+// function User(name) {
+//   this.name = name;
+//   this.isAdmin = false;
+//   salam = "name";
+// }
+
+// let user = new User("Jack");
+
+// alert(user.name); // Jack
+// alert(user.isAdmin); // false
+// alert(User.salam);
+
+
+
+function Calculator (str) {
+  this.calculate (str) {
+    let arr = str.split(" ");
+    return (arr[1] == "+") ? (+arr[0] + +arr[2]) : (+arr[0] - +arr[2]);
+  }
+}
+
+calculator = new Calculator(1-20);
+alert(calculator.calculate);
