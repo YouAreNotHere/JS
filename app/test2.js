@@ -980,12 +980,53 @@
 
 
 
-function Calculator (str) {
-  this.calculate (str) {
-    let arr = str.split(" ");
-    return (arr[1] == "+") ? (+arr[0] + +arr[2]) : (+arr[0] - +arr[2]);
-  }
+// function Calculator (str) {
+//   this.calculate (str) = {
+//     arr : str.split(" "),
+//     return (arr[1] == "+") ? (+arr[0] + +arr[2]) : (+arr[0] - +arr[2]);
+//   }
+// }
+
+// calculator = new Calculator(1-20);
+// alert(calculator.calculate);
+
+
+
+let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+let petya = { name: "Петя", surname: "Иванов", id: 2 };
+let masha = { name: "Маша", surname: "Петрова", id: 3 };
+
+let arr = [ vasya, petya, masha ];
+
+// let names = users.map(item => item.name);
+
+// let names = users.map(item =>{
+//   let fullName = item.name + " " + item.surname;
+//   for (let i = 0; i < users.length; i++){
+//     users[i].fullName = fullName;
+//     delete users[i].name;
+//     alert(users[i].name);
+//     delete users[i].surname;
+//     return users;
+//   }
+//   alert(users[0].name);
+// })
+
+// //Более изящно
+// let usersMapped = users.map(user => ({
+//   fullName: `${user.name} ${user.surname}`,
+//   id: user.id
+// }));
+
+
+// //alert( names ); // Вася, Петя, Маша
+// alert(users[0].fullName);
+// alert(users[1].name);
+
+function sortByAge(arr) {
+  arr.sort((a, b) => a.age > b.age ? 1 : -1);
 }
 
-calculator = new Calculator(1-20);
-alert(calculator.calculate);
+alert(arr[0].name); // Вася
+alert(arr[1].name); // Маша
+alert(arr[2].name); // Петя
