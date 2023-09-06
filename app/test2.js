@@ -992,11 +992,11 @@
 
 
 
-let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
-let petya = { name: "Петя", surname: "Иванов", id: 2 };
-let masha = { name: "Маша", surname: "Петрова", id: 3 };
+// let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+// let petya = { name: "Петя", surname: "Иванов", id: 2 };
+// let masha = { name: "Маша", surname: "Петрова", id: 3 };
 
-let arr = [ vasya, petya, masha ];
+// let arr = [ vasya, petya, masha ];
 
 // let names = users.map(item => item.name);
 
@@ -1023,10 +1023,37 @@ let arr = [ vasya, petya, masha ];
 // alert(users[0].fullName);
 // alert(users[1].name);
 
-function sortByAge(arr) {
-  arr.sort((a, b) => a.age > b.age ? 1 : -1);
-}
+// function sortByAge(arr) {
+//   arr.sort((a, b) => a.age > b.age ? 1 : -1);
+// }
 
-alert(arr[0].name); // Вася
-alert(arr[1].name); // Маша
-alert(arr[2].name); // Петя
+// alert(arr[0].name); // Вася
+// alert(arr[1].name); // Маша
+// alert(arr[2].name); // Петя
+
+// let arr = [1, 2, 3];
+
+// function shuffle (arr){
+//   arr.sort ((a, b) => (a * Math.random()) > (b *Math.random()) ? 1 : -1);
+//   alert(arr);
+// };
+
+// shuffle(arr);
+
+
+
+
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 29 };
+
+let arr = [ vasya, petya, masha ];
+
+function getAverageAge (arr){
+  let averageAge = arr.map(item =>{
+    let x = item.age;
+    alert (x / arr.lenght);
+  })
+}
+getAverageAge(arr);
+//alert(averageAge(arr));
