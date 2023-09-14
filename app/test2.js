@@ -1031,50 +1031,78 @@
 // alert(arr[1].name); // Маша
 // alert(arr[2].name); // Петя
 
-// let arr = [1, 2, 3];
+// let strings = ["кришна", "кришна", "харе", "харе",
+//   "харе", "харе", "кришна", "кришна", ":-O"
+// ];
 
-// function shuffle (arr){
-//   arr.sort ((a, b) => (a * Math.random()) > (b *Math.random()) ? 1 : -1);
-//   alert(arr);
-// };
-
-// shuffle(arr);
-
-
-
-
-// let vasya = { name: "Вася", age: 25 };
-// let petya = { name: "Петя", age: 30 };
-// let masha = { name: "Маша", age: 29 };
-
-// let arr = [ vasya, petya, masha ];
-
-// function getAverageAge (arr){
-//   let x = 0;
-//   let averageAge = arr.map(item =>{
-//     x += item.age;
-//     return x;
-//   })
-//   return x / (+arr.length);
+// let unique = (strings) =>{
+//   let arr = strings.slice(0);
+//   for (let i = 0; arr.length > i; i++){
+//     if (arr.includes(arr[i], (i+1))){
+//       arr.splice(i,1);
+//       --i;
+//     }
+//   }
+//   return arr;
 // }
-// //Более изящный вариант
-// function getAverageAge(users) {
-//   return users.reduce((prev, user) => prev + user.age, 0) / users.length;
-// }
-// alert(getAverageAge(arr));
-// //alert(averageAge(arr));
 
-let strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", ":-O"
+
+// //Альтернатива
+// function unique(arr) {
+//   let result = [];
+
+//   for (let str of arr) {
+//     if (!result.includes(str)) {
+//       result.push(str);
+//     }
+//   }
+
+//   return result;
+// }
+
+
+// alert(unique(strings));
+// alert(strings);
+
+
+
+//let users = [
+//   {id: 'john', name: "John Smith", age: 20},
+//   {id: 'ann', name: "Ann Smith", age: 24},
+//   {id: 'pete', name: "Pete Peterson", age: 31},
+// ];
+
+
+// // function groupById(users){
+// //   let newObj = users.reduce((id, elem) => (id = elem.id = {elem}), 0);
+// //   alert(newObj.age);
+// // }
+
+// function groupById(array) {
+//   return array.reduce((obj, value) => {
+//     obj[value.id] = value;
+//     return obj;
+//   }, {})
+// }
+// groupById(users);
+
+
+let values = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
 ];
 
-let unique  = (strings) =>{
-  let uniqueStaff = strings.map(item =>{
-    if (strings.findLastIndex(user => item > 1)){
-      delete item;
-    }
-    return item;
-  })
+let set = new Set();
+
+function unique(values) {
+  for (let item of values){
+    set.add(item);
+  }
+  for (let value of set){
+    alert(value);
+  }
 }
 
-alert(unique(strings));
+//for (let stuff of set)
+unique(values); 
+alert(set.has("Hare"));
+alert( unique(values) ); // Hare,Krishna,:-O
