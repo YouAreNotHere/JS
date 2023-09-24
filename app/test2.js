@@ -1087,22 +1087,121 @@
 // groupById(users);
 
 
-let values = ["Hare", "Krishna", "Hare", "Krishna",
-  "Krishna", "Krishna", "Hare", "Hare", ":-O"
-];
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
 
-let set = new Set();
+// let set = new Set();
 
-function unique(values) {
-  for (let item of values){
-    set.add(item);
-  }
-  for (let value of set){
-    alert(value);
-  }
-}
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
 
-//for (let stuff of set)
-unique(values); 
-alert(set.has("Hare"));
-alert( unique(values) ); // Hare,Krishna,:-O
+// function unique(values) {
+//   for (let item of values){
+//     set.add(item);
+//   }
+//   for (let value of set){
+//     alert(value);
+//   }
+// }
+
+// //for (let stuff of set)
+// unique(values); 
+// alert(set.has("Hare"));
+// alert( unique(values) ); // Hare,Krishna,:-O
+
+
+
+
+// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+// function aclean(arr){
+  
+// }; 
+
+
+
+// let map = new Map();
+
+// map.set("name", "John");
+// // let arr = [];
+// // for (let key of map.keys()) {
+// //     for (let i = 0; i < arr.length; i++){
+// //         arr.push(key);
+// //     }
+// //   }
+// //   alert(arr[0]);
+
+
+// let keys = map.keys();
+
+
+// let salaries = {
+//     "John": 100,
+//     "Pete": 300,
+//     "Mary": 250
+// };
+
+// function sumSalaries (salaries){
+//     let allSalarires = 0;
+//     for (let value of Object.values(salaries)){
+//         allSalarires += value;
+//     }
+//     return allSalarires;
+// }
+
+// alert(sumSalaries(salaries));
+
+
+
+// let obj = {
+//     name: 'John',
+//     age: 30
+//   };
+
+// function count(obj){
+//     let objLenght = Object.entries(obj).length;
+//     alert(objLenght);
+// }
+
+// count = (obj) => Object.entries(obj).length;
+
+// alert(count(obj));
+
+
+// let {height, width, title} = { title: "Menu", hight: 200, width: 100 };
+//  alert(width);
+
+// let user = {
+//     name: "John",
+//     years: 30
+//   };
+
+// let {name, years: age, isAdmin = false} = user;
+
+// alert( name ); // John
+// alert( age ); // 30
+// alert( isAdmin ); // 
+
+// let salaries = {
+//     "John": 100,
+//     "Pete": 300,
+//     "Mary": 250
+//   };
+
+// function topSalary(salaries){
+//     let x = 0;
+//     let maxName = "";
+//     let salary = Object.entries(salaries).map(([name, sal]) => sal > x ? (x = sal, maxName = name) : x = x);
+//     return maxName;
+// }
+
+// alert(topSalary(salaries));
+
+
+let now = new Date();
+alert( now ); // показывает текущие дату и время
+
+let date = new Date(2017,1,26);
+alert(date);
