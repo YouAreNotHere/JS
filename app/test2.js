@@ -1200,8 +1200,22 @@
 // alert(topSalary(salaries));
 
 
-let now = new Date();
-alert( now ); // показывает текущие дату и время
+//let now = new Date();
+// alert( now ); // показывает текущие дату и время
 
-let date = new Date(2017,1,26);
+// let date = new Date(2017,1,26);
+
+let date = new Date(2023,8,25,03,12);
+
+// function getWeekDay(date){
+//    let someDay = date.getDay();
+//    someDay = 0 ? alert("Sunday") : someDay = 1 ? alert("Moneday") : someDay = 2 ? alert("Thuesday") : someDay = 3 ? alert("Whensday") : alert("Четверг"); 
+// }
+
+function getDateAgo(date, days){
+    let firstStampDay = date.getTime();
+    return new Date(firstStampDay-(days*24*3600*1000));
+};
+
+alert(getDateAgo(date, 365));
 alert(date);
