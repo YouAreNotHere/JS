@@ -1205,17 +1205,70 @@
 
 // let date = new Date(2017,1,26);
 
-let date = new Date(2023,8,25,03,12);
+//let date = new Date();//2023,8,25,03,12);
 
 // function getWeekDay(date){
 //    let someDay = date.getDay();
 //    someDay = 0 ? alert("Sunday") : someDay = 1 ? alert("Moneday") : someDay = 2 ? alert("Thuesday") : someDay = 3 ? alert("Whensday") : alert("Четверг"); 
 // }
 
-function getDateAgo(date, days){
-    let firstStampDay = date.getTime();
-    return new Date(firstStampDay-(days*24*3600*1000));
-};
+// function getDateAgo(date, days){
+//     let firstStampDay = date.getTime();
+//     return new Date(firstStampDay-(days*24*3600*1000));
+// };
 
-alert(getDateAgo(date, 365));
-alert(date);
+// alert(getDateAgo(date, 365));
+ //alert(date);
+
+
+// function getLastDayOfMonth(year, month){
+//     return new Date(year,(month+1),0).getDate();
+// }
+
+// alert(getLastDayOfMonth(2012,1));
+
+
+// function getSecondsToday(){
+//     let now = new Date();
+//     let today = new Date();
+//     today.setHours(0,0,0,0);
+//     alert((now-today)/1000);
+//     alert(today);
+// }
+
+// getSecondsToday();
+
+// function getSecondsToTomorrow(){
+//     let now = new Date();
+//     let tommorow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
+//     alert((tommorow-now)/1000);
+// }
+
+// getSecondsToTomorrow();
+
+let date = new Date(2023,8,21,19,53);
+
+function formatDate(date){
+    let now = new Date();
+    let diff = Math.floor((now-date)/1000);
+    if (diff < 1){
+        alert("Right now");
+    }
+    else if (diff < 60){
+        alert(`Less than ${Math.floor(diff)} seconds ago`);
+    }
+    else if (diff < 3600){
+        diff = diff/60;
+        alert(`Less than ${Math.floor(diff)} minutes ago`);
+    }
+    else{
+        let year = date.getFullYear().toString().slice(-2);
+        let month = date.getMonth()+1;
+        let d = date.getDate();
+        let hour = date.getHours();
+        let minutes = date.getMinutes();
+        alert(`${d}.${month}.${year}, ${hour}:${minutes}`);
+    }
+}
+
+formatDate(date);
