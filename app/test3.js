@@ -28,50 +28,102 @@
 // alert(Object.entries(meetup));
 
 
-// let user = {
-//   name: "Василий Иванович",
-//   age: 35
-// };
+// let list = {
+//     value: 1,
+//     next: {
+//       value: 2,
+//       next: {
+//         value: 3,
+//         next: {
+//           value: 4,
+//           next: null
+//         }
+//       }
+//     }
+//   };
 
-// let str = JSON.stringify(user);
-// let user2 = JSON.parse(str);
-// alert(typeof(user2));
-// alert(user2.name);
+// let secondList = list.next.next;
+// list.next.next = null;
+// list.next.next = secondList;
 
-
-// let room = {
-//   number: 23
-// };
-
-// let meetup = {
-//   title: "Совещание",
-//   occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
-//   place: room
-// };
-
-// // цикличные ссылки
-// room.occupiedBy = meetup;
-// meetup.self = meetup;
-
-// // const huy = JSON.stringify(meetup, function replacer(key, value){
-// //   return (value == "meetup") ? undefined : value;
-// // });
-
-// // alert(huy);
-
-// alert( JSON.stringify(meetup, function replacer(key, value) {
-//   return (key != "" && value == meetup) ? undefined : value;
-// }));
-
-// alert( JSON.stringify(meetup, function replacer(key, value) {
-//   return (key != "" && value == meetup) ? undefined : value;
-// }));
+// alert(list.next.next);
+// alert(secondList);
 
 
-function sum(a,b){
-  const c = a + b;
-  sum(a,b);
-  return c;
-}
+// function sumTo(n){
+//     let sum = 0;
+//     for (let i = 0; i < n+1; i++){
+//         sum += i;
+//     }
+//     alert(sum);
+// }
 
-alert(sum(2,3));
+// sumTo(100);
+
+// function sumTo(n){
+//     if (n == 1){
+//         return 1;
+//     }
+//     else {
+//      return n + sumTo(n-1);
+//     }};
+
+// alert(sumTo(100));
+
+// function sumTo(n){
+//     return (n*(n+1))/2
+// }
+
+// alert(sumTo(3));
+
+
+// function factorial(n){
+//     if (n == 1) {
+//         return 1;
+//     }
+//     else {
+//         return n * factorial(n-1);
+// }}
+
+// alert(factorial(5));
+
+
+// function fib(n){
+//     if (n <= 2){
+//         return 1;
+//     }
+//     else {
+//        return fib(n-1) + fib(n-2);
+//     }
+// }
+
+// alert(fib(6));
+
+
+let list = {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 3,
+        next: {
+          value: 4,
+          next: null
+        }
+      }
+    }
+  };
+
+  function printList(list){
+    if (this.next == null) { // случай (1)
+        alert(this.value);
+        next = null;
+      } else { // случай (2)
+        let sum = 0;
+        for (let values of Object.values(list)) {
+          printList(list); // рекурсивно вызывается для подотделов, суммируя результаты
+        }
+      }
+  }
+
+  printList(list);
