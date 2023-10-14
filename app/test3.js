@@ -100,30 +100,173 @@
 // alert(fib(6));
 
 
-let list = {
-    value: 1,
-    next: {
-      value: 2,
-      next: {
-        value: 3,
-        next: {
-          value: 4,
-          next: null
-        }
-      }
+// let list = {
+//     value: 1,
+//     next: {
+//       value: 2,
+//       next: {
+//         value: 3,
+//         next: {
+//           value: 4,
+//           next: null
+//         }
+//       }
+//     }
+//   };
+
+//   function printList(huy){
+//     alert (huy.value);
+//     if (huy.next == null) return
+//     printList(huy.next);
+//   }
+
+// printList(list);
+
+// function printList(list){
+//     if (list.next){
+//     printList(list.next);
+//     }
+//     alert(list.value)
+// };
+
+// function printList(list){
+//     let tm = list;
+//     for (;tm;){
+
+//         tm = tm.next;
+//     }
+//     for (;tm;){
+//         alert(tm.value);
+//     }
+// }
+
+
+// function huy(a,b){
+    
+//     return function zhopa(a,b){ 
+//         return a+a+b
+//     }
+// }
+
+// alert(huy(7,3));
+
+
+// function f() {
+//     let value = Math.random();
+  
+//     return function() { alert(value); };
+//   }
+  
+//   // 3 функции в массиве, каждая из которых ссылается на лексическое окружение
+//   // из соответствующего вызова f()
+//   let arr = [f(), f(), f()];
+
+// //  for (let key of arr){
+// //     key();
+// //   }
+
+// alert(arr[0]());
+
+
+
+// function flow () {
+//     let value = Math.random();
+  
+//     function g() {
+//       debugger; // в консоли: напишите alert(value); Такой переменной нет!
+//     }
+//   alert(value);
+//     return g;
+//   }
+  
+//   let g = flow();
+//   g();
+
+
+// let name = "John";
+
+// function sayHi() {
+//   alert("Hi, " + name);
+// }
+
+// name = "Pete";
+
+// sayHi(); // что будет показано: "John" или "Pete"?
+
+// name = "Pidor";
+
+
+
+// function sum (a){
+//     //let a = a;
+//     return function c (b){
+//         return a+b;
+//     }
+// }
+
+// alert(sum(1)(2));
+
+
+//let x = 1;
+
+// function func() {
+//     alert(x);
+//   console.log(x); // ReferenceError: Cannot access 'x' before initialization
+//   //let x = 2;
+// }
+
+// func();
+
+
+//  let arr = [1, 2, 3, 4, 5, 6, 7];
+
+// let someArr = [1,2,7];
+
+// let us = arr.filter(item => someArr.includes(item));
+// alert(us);
+
+
+// let users = [
+//     {id: 1, name: "Вася"},
+//     {id: 2, name: "Петя"},
+//     {id: 3, name: "Маша"}
+//   ];
+  
+  // возвращает массив, состоящий из двух первых пользователей
+
+//   function zhopa (a){
+//     return function f(x){
+//         return x.id<a;
+//     }
+//   };
+
+//  // let someUsers = users.filter(zhopa(3));
+  
+
+//   alert(someUsers.length); // 2
+
+
+let users = [
+    { name: "John", age: 20, surname: "Johnson" },
+    { name: "Pete", age: 18, surname: "Peterson" },
+    { name: "Ann", age: 19, surname: "Hathaway" }
+  ];
+
+
+function byField (Name){
+    return function f (a,b){
+        return a[Name] > b[Name] ? 1 : -1;
     }
-  };
+}
 
-  function printList(list){
-    if (this.next == null) { // случай (1)
-        alert(this.value);
-        next = null;
-      } else { // случай (2)
-        let sum = 0;
-        for (let values of Object.values(list)) {
-          printList(list); // рекурсивно вызывается для подотделов, суммируя результаты
-        }
-      }
-  }
+users.sort(byField('age'));
 
-  printList(list);
+// function zhopa (arr){
+//     if (Array.isArray(arr)) {
+//         zhopa(item);
+//     }
+//     alert(arr.name);
+// }
+
+let json = JSON.stringify(users);
+alert(json);
