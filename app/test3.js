@@ -246,27 +246,58 @@
 //   alert(someUsers.length); // 2
 
 
-let users = [
-    { name: "John", age: 20, surname: "Johnson" },
-    { name: "Pete", age: 18, surname: "Peterson" },
-    { name: "Ann", age: 19, surname: "Hathaway" }
-  ];
+// let users = [
+//     { name: "John", age: 20, surname: "Johnson" },
+//     { name: "Pete", age: 18, surname: "Peterson" },
+//     { name: "Ann", age: 19, surname: "Hathaway" }
+//   ];
 
 
-function byField (Name){
-    return function f (a,b){
-        return a[Name] > b[Name] ? 1 : -1;
-    }
-}
-
-users.sort(byField('age'));
-
-// function zhopa (arr){
-//     if (Array.isArray(arr)) {
-//         zhopa(item);
+// function byField (Name){
+//     return function f (a,b){
+//         return a[Name] > b[Name] ? 1 : -1;
 //     }
-//     alert(arr.name);
 // }
 
-let json = JSON.stringify(users);
-alert(json);
+// users.sort(byField('age'));
+
+// // function zhopa (arr){
+// //     if (Array.isArray(arr)) {
+// //         zhopa(item);
+// //     }
+// //     alert(arr.name);
+// // }
+
+// let json = JSON.stringify(users);
+// alert(json);
+
+
+
+function makeArmy() {
+  let shooters = [];
+
+  for (let i = 0; i < 10;i++){
+    function shooter (){
+      alert(i);
+    }
+    shooters.push(shooter);
+  }
+
+  // let i = 0;
+  // while (i < 10) {
+  //   let shooter = function() { // функция shooter
+  //     alert( i ); // должна выводить порядковый номер
+  //   };
+  //   shooters.push(shooter); // и добавлять стрелка в массив
+  //   i++;
+  //}
+
+  // ...а в конце вернуть массив из всех стрелков
+  return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // 10 от стрелка с порядковым номером 0
+army[4](); // 10 от стрелка с порядковым номером 1
+army[2]();
