@@ -272,32 +272,120 @@
 // alert(json);
 
 
+// function makeCounter() {
+//   let count = 0;
 
-function makeArmy() {
-  let shooters = [];
+//   return function() {
+//     return ++count;
+//   };
+// }
 
-  for (let i = 0; i < 10;i++){
-    function shooter (){
-      alert(i);
-    }
-    shooters.push(shooter);
+// let counter = makeCounter();
+// alert(makeCounter()());
+// alert(counter());
+
+
+// function makeArmy() {
+//   let shooters = [];
+
+//   for (let i = 0; i < 10;i++){
+//     function shooter (){
+//       alert(i);
+//     }
+//     shooters.push(shooter);
+//   }
+
+
+
+// let i = 0;
+// while (i < 10) {
+//   let h = i;
+//   let shooter = function() { // функция shooter
+//     alert( h ); // должна выводить порядковый номер
+//   };
+//   shooters.push(shooter); // и добавлять стрелка в массив
+//   i++;
+// }
+
+
+// //   // ...а в конце вернуть массив из всех стрелков
+//    return shooters;
+//  }
+
+// let army = makeArmy();
+
+// army[0](); // 10 от стрелка с порядковым номером 0
+// army[4](); // 10 от стрелка с порядковым номером 1
+// army[2]();
+
+
+// function reverseWords(str){
+//   arr = str.split(" ")
+//   revArr =  arr.reverse()
+//     return revArr.join(" "); // reverse those words
+// }
+
+// alert(reverseWords("Я вчера порезал вены и забрызгал"));
+
+
+// function ask(question, ...handlers) {
+//   let isYes = confirm(question);
+
+//   for(let handler of handlers) {
+//     if (handler.length == 0) {
+//       if (isYes) handler();
+//     } else {
+//       handler(isYes);
+//     }
+//   }
+
+// }
+
+// // для положительных ответов вызываются оба типа обработчиков
+// // для отрицательных - только второго типа
+// ask("Вопрос?", () => alert('Вы ответили да'), result => alert(result));
+
+
+// function makeCounter() {
+
+//   function counter() {
+//     return counter.count++;
+//   };
+
+//   counter.count = 0;
+  
+//   counter.set = (value) => {
+//     counter.count = value;
+//     return counter.count;
+//   }
+
+//   counter.decrease = () => --counter.count;
+
+//   return counter;
+// }
+
+// let counter = makeCounter();
+// alert(counter.set(15));
+// alert(counter.decrease());
+
+
+function sum(a) {
+
+  let currentSum = a;
+
+  function f(b) {
+    currentSum += b;
+    return currentSum;
   }
 
-  // let i = 0;
-  // while (i < 10) {
-  //   let shooter = function() { // функция shooter
-  //     alert( i ); // должна выводить порядковый номер
-  //   };
-  //   shooters.push(shooter); // и добавлять стрелка в массив
-  //   i++;
-  //}
+//   f.toString = function() {
+//     return currentSum;
+//   };
 
-  // ...а в конце вернуть массив из всех стрелков
-  return shooters;
+//   return f;
+ 
 }
 
-let army = makeArmy();
-
-army[0](); // 10 от стрелка с порядковым номером 0
-army[4](); // 10 от стрелка с порядковым номером 1
-army[2]();
+alert( sum(5)(-1)(2) ); // 6
+alert( sum(6)(-1)(-2)(-3) ); // 0
+alert( sum(0)(1)(2)(3)(4)(5) ); // 15
