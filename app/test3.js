@@ -369,23 +369,105 @@
 // alert(counter.decrease());
 
 
-function sum(a) {
+// function sum(a) {
 
-  let currentSum = a;
+//   let currentSum = a;
 
-  function f(b) {
-    currentSum += b;
-    return currentSum;
-  }
-
-//   f.toString = function() {
+//   function f(b) {
+//     currentSum += b;
 //     return currentSum;
-//   };
+//   }
 
-//   return f;
+// //   f.toString = function() {
+// //     return currentSum;
+// //   };
+
+// //   return f;
  
+// }
+
+// alert( sum(5)(-1)(2) ); // 6
+// alert( sum(6)(-1)(-2)(-3) ); // 0
+// alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+
+
+// function some(a,b){
+//   return function(){
+//     return a+b;
+//   }
+// };
+
+// alert(some(1,2)());
+
+
+// function Person (name,age) {
+//   //return this.name + "age is" + this.age;
+//   this.name = name;
+//   this.age = age;
+//   function constructor (name, age){
+//     return name + age;
+//   }
+// };
+
+// const john = new Person("John", "34");
+
+// alert(john.constructor);
+
+
+// let arr = [1,-2,-3,4,5,6,7,-8,-9,10];
+
+// function positiveSum(arr) {
+//   const result = arr.reduce((sum, current) => (current > 0) ? current + sum : sum,0);
+//   return result;
+// }
+
+// alert(positiveSum(arr));
+
+
+
+// let i = 0;
+// let sum = 0;
+
+// function culc (n){
+//   i++;
+//   sum += i;
+//   if (sum < n){
+//     culc(n);
+//   }
+//   return i;
+// }
+
+// alert(culc(11));
+
+
+const f = {
+  someMethod(){
+    return "Wow"
+  },
+
+  slow(...arguments){
+  alert(arguments[0] + " " + this.someMethod());
+  alert(arguments[1]+this.someMethod);
+  },
+
 }
 
-alert( sum(5)(-1)(2) ); // 6
-alert( sum(6)(-1)(-2)(-3) ); // 0
-alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+function delay (func, time){
+  return function (){
+    let savedThis = this;
+    setTimeout(() => func.apply(this, arguments), time);
+     //return setTimeout(func.call(f, ...arguments), time);
+  }
+}
+
+// создаём обёртки
+//f.slow = delay(f.slow, 10000);
+//let f1500 = delay(f, 1500);
+
+
+delay(f.slow("test","script"));
+f.slow("test", "script"); // показывает "test" после 1000 мс
+//f1500("test"); // показывает "test" после 1500 мс
+
+//!!!Почему вообще this передается из ссылки? Как delay(f.slow("test","script")); передает this??
+
