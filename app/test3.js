@@ -447,7 +447,7 @@ const f = {
 
   slow(...arguments){
   alert(arguments[0] + " " + this.someMethod());
-  alert(arguments[1]+this.someMethod);
+  alert(arguments[1] + " " + this.someMethod());
   },
 
 }
@@ -455,19 +455,27 @@ const f = {
 function delay (func, time){
   return function (){
     let savedThis = this;
-    setTimeout(() => func.apply(this, arguments), time);
-     //return setTimeout(func.call(f, ...arguments), time);
+    //setTimeout(() => func.apply(this, arguments), time);
+    return setTimeout(func.call(this, ...arguments), time);
   }
 }
 
-// создаём обёртки
-//f.slow = delay(f.slow, 10000);
-//let f1500 = delay(f, 1500);
+f.slow = delay(f.slow, 10000);
 
 
-delay(f.slow("test","script"));
 f.slow("test", "script"); // показывает "test" после 1000 мс
-//f1500("test"); // показывает "test" после 1500 мс
+
 
 //!!!Почему вообще this передается из ссылки? Как delay(f.slow("test","script")); передает this??
+
+
+// let user = {
+//   firstName: "Ilya",
+//   sayHi() {
+//     function arrow () { alert(this.firstName)};
+//     arrow.call();
+//   }
+// };
+
+// user.sayHi(); // Ilya
 
