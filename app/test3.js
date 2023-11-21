@@ -440,30 +440,30 @@
 // alert(culc(11));
 
 
-const f = {
-  someMethod(){
-    return "Wow"
-  },
+// const f = {
+//   someMethod(){
+//     return "Wow"
+//   },
 
-  slow(...arguments){
-  alert(arguments[0] + " " + this.someMethod());
-  alert(arguments[1] + " " + this.someMethod());
-  },
+//   slow(...arguments){
+//   alert(arguments[0] + " " + this.someMethod());
+//   alert(arguments[1] + " " + this.someMethod());
+//   },
 
-}
+// }
 
-function delay (func, time){
-  return function (){
-    let savedThis = this;
-    //setTimeout(() => func.apply(this, arguments), time);
-    return setTimeout(func.call(this, ...arguments), time);
-  }
-}
+// function delay (func, time){
+//   return function (){
+//     let savedThis = this;
+//     return setTimeout(() => func.apply(this, arguments), time);
+//     //return setTimeout(func.call(this, ...arguments), time);
+//   }
+// }
 
-f.slow = delay(f.slow, 10000);
+// f.slow = delay(f.slow, 10000);
 
 
-f.slow("test", "script"); // показывает "test" после 1000 мс
+// f.slow("test", "script"); // показывает "test" после 1000 мс
 
 
 //!!!Почему вообще this передается из ссылки? Как delay(f.slow("test","script")); передает this??
@@ -478,4 +478,115 @@ f.slow("test", "script"); // показывает "test" после 1000 мс
 // };
 
 // user.sayHi(); // Ilya
+
+
+// let func = (x) => alert (x);
+
+// function debounce(func, ms) {
+//   let timeout;
+//   return function() {
+//     clearTimeout(timeout);
+//     timeout = setTimeout(() => func.apply(this, arguments), ms);
+//   };
+// }
+
+// a = debounce(func, 5000);
+// d = debounce(func, 300);
+// c = debounce(func, 400);
+
+// a(1);
+// d(2);
+// c(3);
+
+// let arr = [78,56,232,12,8];
+
+// let SmallestIntegerFinder = (arr) =>{
+//   return arr.reduce((small, current) => (small > current) ? small = current : small)
+// }
+
+// alert(SmallestIntegerFinder(arr));
+
+
+
+// let worker = {
+//   someMethod() {
+//     return 1;
+//   },
+
+//   slow(x = 3) {
+//     // здесь может быть страшно тяжёлая задача для процессора
+//     //alert("Called with " + x);
+//     alert( x * this.someMethod()); // (*)
+//   }
+// };
+
+// worker.slow(2);
+// //worker.slow = worker.slow(4);
+// // function someFunction (func, time){
+// //   func(3);
+// //   alert(time);
+// // }
+// // someFunction(worker.slow,200);
+// // setTimeout(worker.slow,10000); // Почему теряется контекст, хотя если вызывать без setTimeout не теряется.
+
+// f = function(){
+//   return worker.slow();
+// }
+// f();
+
+
+// function mul(a, b) {
+//   let c = a * b;
+//   return function (x){
+//     return x+c;
+//   }
+// }
+
+// let double = mul.bind(null, 2);
+// alert(double(3)(4));
+
+
+
+function partial(func, ...argsBound) {
+  return function(...args) { // (*)
+    let newFunc = func.bind(this, ...argsBound, ...args);
+    return newFunc();
+  }
+}
+
+//использование:
+// let user = {
+//   firstName: "John",
+//   say(time, phrase) {
+//     alert(`[${time}] ${this.firstName}: ${phrase}!`);
+//   },
+//   //sayNow : this.say.bind(this, new Date().getHours() + ':' + new Date().getMinutes()),
+// };
+
+// // добавляем частично применённый метод с фиксированным временем
+
+// let sayNow = user.say.bind(this, new Date().getHours() + ':' + new Date().getMinutes());
+// //user.sayNow = partial(user.say, new Date().getHours() + ':' + new Date().getMinutes());
+
+// let baz = new sayNow("Hello");
+// alert(baz.say);
+// // Что-то вроде этого:
+// // [10:00] John: Hello!
+
+
+function foo(p1,p2) {
+	this.val = p1 + p2;
+}
+
+// используем здесь `null`, т.к. нам нет дела до 
+// жесткой привязки `this` в этом сценарии, и она 
+// будет переопределена вызовом с операцией `new` в любом случае!
+var bar = foo.bind( null, 1 );
+
+var baz = new bar( 2);
+
+alert(baz.val); // p1p2
+
+//ПОЧЕМУ ЭТОТ БОЛЕЕ ПРОСТОЙ КОД РАБОТАЕТ,А  ВЫШЕ НЕТ? ПИШЕТ, ЧТО баз.сэй НЕ КОНСТРУКТОР!
+
 
