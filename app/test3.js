@@ -547,12 +547,12 @@
 
 
 
-function partial(func, ...argsBound) {
-  return function(...args) { // (*)
-    let newFunc = func.bind(this, ...argsBound, ...args);
-    return newFunc();
-  }
-}
+// function partial(func, ...argsBound) {
+//   return function(...args) { // (*)
+//     let newFunc = func.bind(this, ...argsBound, ...args);
+//     return newFunc();
+//   }
+// }
 
 //использование:
 // let user = {
@@ -563,30 +563,61 @@ function partial(func, ...argsBound) {
 //   //sayNow : this.say.bind(this, new Date().getHours() + ':' + new Date().getMinutes()),
 // };
 
-// // добавляем частично применённый метод с фиксированным временем
+// user.sayNow = user.say.call(this, new Date().getHours() + ':' + new Date().getMinutes());
+// // //user.sayNow = partial(user.say, new Date().getHours() + ':' + new Date().getMinutes());
 
-// let sayNow = user.say.bind(this, new Date().getHours() + ':' + new Date().getMinutes());
-// //user.sayNow = partial(user.say, new Date().getHours() + ':' + new Date().getMinutes());
+// user.sayNow("Hello");
+// alert(newSayNow.say);
 
-// let baz = new sayNow("Hello");
-// alert(baz.say);
-// // Что-то вроде этого:
-// // [10:00] John: Hello!
+// // более простой пример
+// function foo(p1,p2) {
+// 	this.val =  p1 + p2;
+// }
+
+// var bar = foo.bind( null, 1 );
+
+// var baz = new bar( 2);
+
+// alert(baz.val); // p1p2
 
 
-function foo(p1,p2) {
-	this.val = p1 + p2;
+
+// const disemvowel = (str) => { 
+//   const vowels = ["e", "y", "u", "i", "o", "a"];
+//   let arr = str.split(" ");
+//   let newArr = [];
+  
+//   for (let word of arr){
+//     word = word
+//     .split("")
+//     .filter(item => !(vowels.includes(item.toLowerCase())))
+//     .join("");
+//     newArr.push(word);
+// };
+  
+//   return newArr.join(" ");
+// }
+
+// alert(disemvowel("This website is for losers LOL!"))
+
+
+
+function highAndLow(numbers){
+  let firtsAndLastLetter = [];
+  let set = new Set();
+  let arr = numbers.split(" ");
+  arr = arr.map(item => Number(item));
+  arr = arr.sort((a,b) => b - a);
+  for (let key of arr){
+    (key === arr[0] || key === arr.at(-1)) ? set.add(key) : key
+  };
+  for (let value of set){
+    firtsAndLastLetter.push(value)
+  };
+  
+  return firtsAndLastLetter.join(" ");
 }
+//set не подходит, нужно чтобы свойства коллекции дублировались, но один раз
 
-// используем здесь `null`, т.к. нам нет дела до 
-// жесткой привязки `this` в этом сценарии, и она 
-// будет переопределена вызовом с операцией `new` в любом случае!
-var bar = foo.bind( null, 1 );
-
-var baz = new bar( 2);
-
-alert(baz.val); // p1p2
-
-//ПОЧЕМУ ЭТОТ БОЛЕЕ ПРОСТОЙ КОД РАБОТАЕТ,А  ВЫШЕ НЕТ? ПИШЕТ, ЧТО баз.сэй НЕ КОНСТРУКТОР!
-
-
+alert(highAndLow("8 3 -5 42 -1 0 0 -9 4 0 0 0 7 4 -4 0 0 0"));
+alert(highAndLow("42 42 42 42"));
