@@ -7,7 +7,7 @@
 //       isEditor: true
 //     }
 //   };
-  
+
 //   alert(JSON.stringify(user, null, "А"));
 
 
@@ -142,7 +142,7 @@
 
 
 // function huy(a,b){
-    
+
 //     return function zhopa(a,b){ 
 //         return a+a+b
 //     }
@@ -153,10 +153,10 @@
 
 // function f() {
 //     let value = Math.random();
-  
+
 //     return function() { alert(value); };
 //   }
-  
+
 //   // 3 функции в массиве, каждая из которых ссылается на лексическое окружение
 //   // из соответствующего вызова f()
 //   let arr = [f(), f(), f()];
@@ -171,14 +171,14 @@
 
 // function flow () {
 //     let value = Math.random();
-  
+
 //     function g() {
 //       debugger; // в консоли: напишите alert(value); Такой переменной нет!
 //     }
 //   alert(value);
 //     return g;
 //   }
-  
+
 //   let g = flow();
 //   g();
 
@@ -231,8 +231,8 @@
 //     {id: 2, name: "Петя"},
 //     {id: 3, name: "Маша"}
 //   ];
-  
-  // возвращает массив, состоящий из двух первых пользователей
+
+// возвращает массив, состоящий из двух первых пользователей
 
 //   function zhopa (a){
 //     return function f(x){
@@ -241,7 +241,7 @@
 //   };
 
 //  // let someUsers = users.filter(zhopa(3));
-  
+
 
 //   alert(someUsers.length); // 2
 
@@ -353,7 +353,7 @@
 //   };
 
 //   counter.count = 0;
-  
+
 //   counter.set = (value) => {
 //     counter.count = value;
 //     return counter.count;
@@ -383,7 +383,7 @@
 // //   };
 
 // //   return f;
- 
+
 // }
 
 // alert( sum(5)(-1)(2) ); // 6
@@ -582,42 +582,249 @@
 
 
 
-// const disemvowel = (str) => { 
-//   const vowels = ["e", "y", "u", "i", "o", "a"];
-//   let arr = str.split(" ");
-//   let newArr = [];
-  
-//   for (let word of arr){
-//     word = word
-//     .split("")
-//     .filter(item => !(vowels.includes(item.toLowerCase())))
-//     .join("");
-//     newArr.push(word);
-// };
-  
-//   return newArr.join(" ");
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?", '');
+//   if (password == "rockstar") ok();
+//   else fail();
 // }
 
-// alert(disemvowel("This website is for losers LOL!"))
+// let user = {
+//   name: 'John',
+
+//   login(result) {
+//     alert( this.name + (result ? ' logged in' : ' failed to log in') );
+//   }
+// };
+
+// askPassword(user.login.bind(user,true), user.login.bind(user,false)); // ?
 
 
 
-function highAndLow(numbers){
-  let firtsAndLastLetter = [];
-  let set = new Set();
-  let arr = numbers.split(" ");
-  arr = arr.map(item => Number(item));
-  arr = arr.sort((a,b) => b - a);
-  for (let key of arr){
-    (key === arr[0] || key === arr.at(-1)) ? set.add(key) : key
-  };
-  for (let value of set){
-    firtsAndLastLetter.push(value)
-  };
+// profile = {
+//   name : "Anton",
+//   age : 26
+// }
+
+// function printName(){
+//   alert(this.name);
+//   function oneMoreFunction(){
+//     alert(this.name)
+//   } 
+//   // let oneMoreFunction = () =>{
+//   //   alert(this.name)
+//   // } 
+//   oneMoreFunction();
+// }
+
+
+// printName.call(profile);
+
+
+//  function func (str) {
+//     let arr = str
+//       .split(" ")
+//       .map(word => word[0].toUpperCase() + word.slice(1))
+//       .join(" ");
+//     return arr;
+//   };
+
+// alert(func("Привет меня зовут Игорь"));
+
+
+
+// let str = 'a1a a22a a3a a4a a5a aba aca';
+// function findStr (){
+//     return str.replace(/a\d+a/g,"");
+// }
+
+// let str = "12:44 15:46 03:12"
+// let reg = /\d+:\d+/g;
+// let res = str.match(reg);
+
+// alert(res[1]);
+// let str = 'site.ru sss site.com zzz site.net';
+
+// //function findStr(){
+//     let matches = str.matchAll(/(\w{4})\.(\w{2,3})/g);
+// //}
+// for (let match of matches) {
+// 	alert(match); // [12, 1, 2], [34, 3, 4], [56, 5, 6] 
+// }
+
+
+// let str = '12:37 15:48 17:59';
+
+// let reg = /\d+:\d+/g;
+// reg.lastIndex = 5;
+
+// let res = reg.exec(str)
+// alert(res[1]); // [34]
+
+
+// let str = '31.12.2025';
+// let res = str.replace(/(\d{2}).(\d{2}).(\d{4})/g, '$3.$2.$1');
+// alert(res);
+
+
+
+// let str = '2+3= 4+5= 6+7=';
+
+// let result = str.replace(/(\d+)\+(\d+)=/g, function(match0, match1, match2) {
+// 	let sum = Number(match1) + Number(match2);
+// 	return match0 + sum;
+// });
+
+// console.log(result);
+
+
+// let str = 'sss site.ru zzz site.com kkk';
+// let res = str.replace(/\w+\.\w{2,}/g, '<a href="http://$&">$&</a>')
+// alert(res);
+
+
+// let str = 'a aa aaa aaaa aaaaa';
+// let res = str.replace(/([a-z])\1+/ig, "huy");
+// alert(res);
+
+
+// let str = '12:59:59 12:59:12 09:45:09';
+// let reg = /(?<hours>\d{2}):(?<minutes>\d{2}):(?<seconds>\d{2})/;
+// let res = str.match(reg);
+// alert(res.groups.seconds); //ПОПРОБОВАТЬ ЧЕРЕЗ ЦИКЛ И ПО-МОЕМУ МАЧ ОЛ
+
+
+// let str = 'abab123';
+// let res = str.match(/(ab)*/);
+// alert(res[0]);
+
+
+// let str = 'func1() func2() func3()';
+// let res = str.replace(/(?<=[a-z]{4}\d)\(\)/g, "");
+// alert(res);
+
+
+// let str = '$aaa $bbb $ccc xxxx';
+// let res = str.replace(/(?<!\$)\w{3,}/g, "");
+// alert(res);
+
+
+// function multiply(multiplier, ...theArgs) {
+//     return theArgs.map(function (element) {
+//       return multiplier * element;
+//     });
+//   }
   
-  return firtsAndLastLetter.join(" ");
-}
-//set не подходит, нужно чтобы свойства коллекции дублировались, но один раз
+//   var arr = multiply(2, 1, 2, 3);
 
-alert(highAndLow("8 3 -5 42 -1 0 0 -9 4 0 0 0 7 4 -4 0 0 0"));
-alert(highAndLow("42 42 42 42"));
+
+
+
+// let hamster = {
+//   // stomach: [],
+
+//   eat(food) {
+//     this.stomach.push(food);
+//   }
+// };
+
+// let speedy = {
+//   __proto__: hamster,
+//   stomach: [],
+// };
+
+// let lazy = {
+//   __proto__: hamster,
+//   stomach: [],
+// };
+
+// // Этот хомяк нашёл еду
+// speedy.eat("apple");
+// alert( speedy.stomach ); // apple
+
+// // У этого хомяка тоже есть еда. Почему? Исправьте
+// alert( lazy.stomach ); // apple
+
+
+
+// if (!String.prototype.repeat) { // Если такого метода нет
+//   // добавляем его в прототип
+
+//   String.prototype.repeat = function(n) {
+//     // повторить строку n раз
+
+//     // на самом деле код должен быть немного более сложным
+//     // (полный алгоритм можно найти в спецификации)
+//     // но даже неполный полифил зачастую достаточно хорош для использования
+//     return new Array(n + 1).join(this);
+//   };
+// }
+
+// alert( "La".repeat(3) ); // LaLaLa
+
+
+
+// let dictionary = Object.create(null);
+
+// // ваш код, который добавляет метод dictionary.toString
+
+// // добавляем немного данных
+// dictionary.apple = "Apple";
+// dictionary.__proto__ = "test"; // здесь __proto__ -- это обычный ключ
+
+// // только apple и __proto__ выведены в цикле
+// // for(let key in dictionary) {
+// //   alert(key); // "apple", затем "__proto__"
+// // }
+// dictionary.toString = function (){
+//   let arr = [];
+//   let keys = Object.keys(this);
+//   for (key of keys){
+//     arr.push(key);
+//   }
+//    return arr.join(",");
+// }
+// // ваш метод toString в действии
+// alert(dictionary); // "apple,__proto__"
+
+
+class Clock {
+  
+  constructor ({ template }){
+    this.template = template;
+  }
+
+   timer = {}
+
+   render() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  stop () {
+    clearInterval(this.timer);
+  };
+
+  start() {
+    this.render();
+    timer = setInterval(this.render, 1000);
+  };
+
+}
+
+let clock = new Clock({template: 'h:m:s'});
+clock.start();
