@@ -787,44 +787,32 @@
 // alert(dictionary); // "apple,__proto__"
 
 
-class Clock {
-  
-  constructor ({ template }){
-    this.template = template;
+
+
+let animal = {
+  sayHi() {
+    alert("Я животное");
   }
+};
 
-   timer = {}
-
-   render() {
-    let date = new Date();
-
-    let hours = date.getHours();
-    if (hours < 10) hours = '0' + hours;
-
-    let mins = date.getMinutes();
-    if (mins < 10) mins = '0' + mins;
-
-    let secs = date.getSeconds();
-    if (secs < 10) secs = '0' + secs;
-
-    let output = this.template
-      .replace('h', hours)
-      .replace('m', mins)
-      .replace('s', secs);
-
-    console.log(output);
+// rabbit наследует от animal
+let rabbit = {
+  __proto__: animal,
+  sayHi() {
+    super.sayHi();
   }
+};
 
-  stop () {
-    clearInterval(this.timer);
-  };
+let plant = {
+  sayHi() {
+    alert("Я растение");
+  }
+};
 
-  start() {
-    this.render();
-    timer = setInterval(this.render, 1000);
-  };
+// tree наследует от plant
+let tree = {
+  __proto__: plant,
+ // sayHi: rabbit.sayHi // (*)
+};
 
-}
-
-let clock = new Clock({template: 'h:m:s'});
-clock.start();
+tree.sayHi();  // Я животное (?!?)
