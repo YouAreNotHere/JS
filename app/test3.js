@@ -818,53 +818,71 @@
 // tree.sayHi();  // Я животное (?!?)
 
 
-class Clock {
-  constructor({ template }) {
-    this.template = template;
-  }
+// class Clock {
+//   constructor({ template }) {
+//     this.template = template;
+//   }
 
-  render() {
-    let date = new Date();
+//   render() {
+//     let date = new Date();
 
-    let hours = date.getHours();
-    if (hours < 10) hours = '0' + hours;
+//     let hours = date.getHours();
+//     if (hours < 10) hours = '0' + hours;
 
-    let mins = date.getMinutes();
-    if (mins < 10) mins = '0' + mins;
+//     let mins = date.getMinutes();
+//     if (mins < 10) mins = '0' + mins;
 
-    let secs = date.getSeconds();
-    if (secs < 10) secs = '0' + secs;
+//     let secs = date.getSeconds();
+//     if (secs < 10) secs = '0' + secs;
 
-    let output = this.template
-      .replace('h', hours)
-      .replace('m', mins)
-      .replace('s', secs);
+//     let output = this.template
+//       .replace('h', hours)
+//       .replace('m', mins)
+//       .replace('s', secs);
 
-    console.log(output);
-  }
+//     console.log(output);
+//   }
 
-  stop() {
-    clearInterval(this.timer);
-  }
+//   stop() {
+//     clearInterval(this.timer);
+//   }
 
-  start() {
-    this.render();
-    this.timer = setInterval(() => this.render(), 1000);
+//   start() {
+//     this.render();
+//     this.timer = setInterval(() => this.render(), 1000);
+//   }
+// }
+
+// class ExtendedClock extends Clock {
+//   constructor(options) {
+//     super(options);
+//     let { precision = 1000 } = options;
+//     this.precision = precision;
+//   }
+
+//   start() {
+//     this.render();
+//     this.timer = setInterval(() => this.render(), this.precision);
+//   }
+// };
+
+//  let newClock = new ExtendedClock({template: 'h:m:s'},3000);
+// newClock.start();
+
+
+// class Rabbit extends Object {
+//   constructor(name) {
+//     super(name);
+//     this.name =name;
+//   }
+// }
+
+class Rabbit extends Object {
+  static constructor(name) {
+    this.name =name;
   }
 }
 
-class ExtendedClock extends Clock {
-  constructor(options) {
-    super(options);
-    let { precision = 1000 } = options;
-    this.precision = precision;
-  }
+let rabbit = new Rabbit("Кроль");
 
-  start() {
-    this.render();
-    this.timer = setInterval(() => this.render(), this.precision);
-  }
-};
-
- let newClock = new ExtendedClock({template: 'h:m:s'},3000);
-newClock.start();
+alert( rabbit.hasOwnProperty('name') ); // Ошибка
