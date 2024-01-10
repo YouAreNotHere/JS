@@ -877,12 +877,12 @@
 //   }
 // }
 
-class Rabbit extends Object {
-  static constructor(name) {
-    this.name =name;
-  }
-}
+// class Rabbit extends Object {
+//   static constructor(name) {
+//     this.name =name;
+//   }
+// }
 
-let rabbit = new Rabbit("Кроль");
+// let rabbit = new Rabbit("Кроль");
 
-alert( rabbit.hasOwnProperty('name') ); // Ошибка
+// alert( rabbit.hasOwnProperty('name') ); // Ошибка

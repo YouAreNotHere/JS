@@ -1,5 +1,6 @@
 <!DOCTYPE html>
   <html class ="page" lang="ru">
+    
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,31 +17,148 @@
   <script> -->
     <!-- // chai предоставляет большое количество функций. Объявим assert глобально
     let assert = chai.assert; -->
-  // </script> -->
-  //     <script src="test3.js"> </script>
+  <!-- </script> -->
+
+  <!-- <script src="test3.js"> </script> -->
   </head>
   <body>
-    <!-- <script>
-      function pow(x, n) {
-  if (n < 0) return NaN;
-  if (Math.round(n) != n) return NaN;
 
-  let result = 1;
+    <div id="container"></div>
 
-  for (let i = 0; i < n; i++) {
-    result *= x;
-  }
+    <script>
+      let data = {
+      "Рыбы": {
+        "форель": {},
+        "лосось": {}
+      },
+    
+      "Деревья": {
+        "Огромные": {
+          "секвойя": {},
+          "дуб": {}
+        },
+        "Цветковые": {
+          "яблоня": {},
+          "магнолия": {}
+        }
+      }
+    };
+    
+    // function createTree(obj){
+    //   let main = document.createElement("ul");
+    //   document.body.append(main);
+    //   main = document.querySelector("ul");
+    
+    //   function createWounds(obj){
+    //     for (let wound in obj){
+    //        if (wound){
+    //          if (createWounds(wound) === 0){
+    //           let ul = document.createElement("ul");
+    //           wound.toString();
+    //           ul.innerHTML = wound;
+    //           main.append(ul);
+    //          }
+    //          else {
+    //           let li = document.createElement("li");
+    //           wound.toString();
+    //           li.innerHTML = wound;
+    //           main.append(wound);
+    //          }
+    //        }
+    //       else {
+    //         return false;
+    //       }
+    //     }
+    //     }
+    //     createWounds(obj);
+    //   };
+    
+    
+    // // let container = document.getElementById('container');
+    // createTree(data);
 
-  return result;
-}
+
+    // function createTree(container, obj) {
+    //   container.innerHTML = createTreeText(obj);
+    // }
+
+    // function createTreeText(obj) { // отдельная рекурсивная функция
+    //   let li = '';
+    //   let ul;
+    //   for (let key in obj) {
+    //     li += '<li>' + key + createTreeText(obj[key]) + '</li>';
+    //   }
+    //   if (li) {
+    //     ul = '<ul>' + li + '</ul>'
+    //   }
+    //   return ul || '';
+    // }
+
+    // createTree(container, data);
+
+    function createTree(container, obj) {
+      container.append(createTreeDom(obj));
+    }
+
+    function createTreeDom(obj) {
+      // если нет дочерних элементов, то вызов возвращает undefined
+      // и элемент <ul> не будет создан
+      if (!Object.keys(obj).length) return;
+
+      let ul = document.createElement('ul');
+
+      for (let key in obj) {
+        let li = document.createElement('li');
+        li.innerHTML = key;
+
+        let childrenUl = createTreeDom(obj[key]);
+        if (childrenUl) {
+          li.append(childrenUl);
+        }
+
+        ul.append(li);
+      }
+
+      return ul;
+    }
+
+    let container = document.getElementById('container');
+    createTree(container, data);
+
+
+
+// let arr = [];
+
+// function createUl (){
+//   let ul = document.createElement("ul");
+//   document.body.append(ul);
+//   createLi();
+//   //document.body.append(...arr);
+// }
+
+// function createLi (){
+//   let liContent = prompt("Add new list element, please!");
+//   if (liContent){
+//     let li = document.createElement("li");
+//     li.textContent = liContent;
+//     const ul = document.querySelector("ul");
+//     ul.append(li);
+//     createLi();
+//     }
+//   }
+
+// createUl();
+
+</script>
+
     </script>
-    </script>
-  <!-- элемент с id="mocha" будет содержать результаты тестов -->
-  <!-- <div id="mocha"></div> -->
 
-  <!-- запускаем тесты! -->
-  <!-- <script> -->
-    <!-- mocha.run(); -->
-  <!-- </script> --> -->
   </body>
-  </html>
+  // <!-- элемент с id="mocha" будет содержать результаты тестов -->
+  // <!-- <div id="mocha"></div> -->
+
+  // <!-- запускаем тесты! -->
+  // <!-- <script> -->
+  //   <!-- mocha.run(); -->
+  // <!-- </script> --> -->
+
