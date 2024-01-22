@@ -886,3 +886,18 @@
 // let rabbit = new Rabbit("Кроль");
 
 // alert( rabbit.hasOwnProperty('name') ); // Ошибка
+
+
+
+// function first(number, time){
+//     return new Promise(function(resolve){
+//         setTimeout(() => {
+//             alert(number);
+//             resolve()
+//         }, time);
+//     })
+// }
+
+// first(1, 3000)
+//   .then(() => first(2, 2000))
+//   .then(() => first(3, 1000));
