@@ -960,6 +960,24 @@ Promise.all(requests)
     console.log(users);
     users.forEach(user => {
       console.log(user);
-      alert(user.name)
+      alert(user.result.name)
     })
   });
+
+
+// let cache = new Map();
+
+// function loadCached(url) {
+//   if (cache.has(url)) {
+//     return Promise.resolve(cache.get(url)); // (*)
+//   }
+
+//   return fetch(url)
+//     .then(response => response.text())
+//     .then(text => {
+//       cache.set(url,text);
+//       return text;
+//     });
+// }
+
+// loadCached(`https://api.github.com/users/remy`);
