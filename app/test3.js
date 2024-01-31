@@ -929,40 +929,40 @@
 //     error => alert(error)
 //   );
   
-let names = ['iliakan', 'remy', 'jeresig'];
+// let names = ['iliakan', 'remy', 'jeresig'];
 
-let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
+// let requests = names.map(name => fetch(`https://api.github.com/users/${name}`));
 
-Promise.all(requests)
-  .then(responses => {
-    console.log(responses);
-    // все промисы успешно завершены
-    for(let response of responses) {
-      alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки
-    }
-    responses = responses.map(r => {  
-    console.log(responses)
-    console.log(r)
-    return r.json()
-    });
-    console.log(responses);
-    return responses;
-  })
-  // преобразовать массив ответов response в response.json(),
-  // чтобы прочитать содержимое каждого
-  //  .then(responses => Promise.all(responses.map(r => {
-  //   console.log(r);
-  //   console.log(responses);
-  //   return r.json();
-  //   })))
-  // все JSON-ответы обработаны, users - массив с результатами
-  .then(users => {
-    console.log(users);
-    users.forEach(user => {
-      console.log(user);
-      alert(user.result.name)
-    })
-  });
+// Promise.all(requests)
+//   .then(responses => {
+//     console.log(responses);
+//     // все промисы успешно завершены
+//     for(let response of responses) {
+//       alert(`${response.url}: ${response.status}`); // покажет 200 для каждой ссылки
+//     }
+//     responses = responses.map(r => {  
+//     console.log(responses)
+//     console.log(r)
+//     return r.json()
+//     });
+//     console.log(responses);
+//     return responses;
+//   })
+//   // преобразовать массив ответов response в response.json(),
+//   // чтобы прочитать содержимое каждого
+//   //  .then(responses => Promise.all(responses.map(r => {
+//   //   console.log(r);
+//   //   console.log(responses);
+//   //   return r.json();
+//   //   })))
+//   // все JSON-ответы обработаны, users - массив с результатами
+//   .then(users => {
+//     console.log(users);
+//     users.forEach(user => {
+//       console.log(user);
+//       alert(user.result.name)
+//     })
+//   });
 
 
 // let cache = new Map();
@@ -981,3 +981,14 @@ Promise.all(requests)
 // }
 
 // loadCached(`https://api.github.com/users/remy`);
+
+function someFunction(){
+return new Promise(resolve => {
+  resolve (function(){
+    alert(3);
+  })
+})
+};
+
+someFunction()
+.then (result => result());
