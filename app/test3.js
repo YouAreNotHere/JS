@@ -982,13 +982,25 @@
 
 // loadCached(`https://api.github.com/users/remy`);
 
-function someFunction(){
-return new Promise(resolve => {
-  resolve (function(){
-    alert(3);
-  })
+async function someFunction(){
+ await  new Promise(resolve => {
+  setTimeout (() => resolve(alert(1)), 3000)
+});
+
+//  let result = await promis;
+//  alert(result);
+};
+
+async function Secfunction (){
+  let promis = new Promise(resolve => {
+  setTimeout (() => resolve(alert(2)), 2000)
+  
+  //let result = await promis;
+  //alert(result);
 })
 };
 
-someFunction()
-.then (result => result());
+someFunction();
+Secfunction();
+alert(3);
+
