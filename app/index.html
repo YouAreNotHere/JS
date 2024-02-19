@@ -22,7 +22,13 @@
   <script src="test3.js"> </script>
   </head>
   <body>
+    <button id="elem">Нажми, чтобы спрятать меня</button>
 
+    <script>
+      elem.onclick = function (){
+        elem.hidden = true;
+      }
+    </script>
 
   </body>
   // <!-- элемент с id="mocha" будет содержать результаты тестов -->
