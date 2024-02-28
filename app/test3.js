@@ -1054,3 +1054,58 @@
 
 
 
+// function curry(func) {
+
+//     return function curried(...args) {
+//       if (args.length >= func.length) {
+//         return func.apply(null, args);
+//       } else {
+//         return function(...args2) {
+//           return curried.apply(null, args.concat(args2));
+//         }
+//       }
+//     };
+  
+//   }
+
+//   function sum(a, b, c) {
+//     return a + b + c;
+//   }
+  
+//   let curriedSum = curry(sum);
+  
+//   alert( curriedSum(1, 2, 3) ); // 6, всё ещё можно вызывать нормально
+
+//1,5,3,2,4
+
+let range = {
+  0: 1,
+  1: 3,
+  2: 5,
+  3: 7,
+  4:9,
+  
+
+[Symbol.iterator]() {
+  // ...возвращает объект-итератор:
+  // далее for..of работает только с этим объектом, запрашивая следующее значение вызовом next()
+  return {
+    current: this[0],
+    last: this[4],
+
+    // next() вызывается на каждой итерации цикла for..of
+    next() { // (2)
+      // должен возвращать значение в виде объекта {done:.., value :...}
+      if (this.current <= this.last) {
+        return { done: false, value: this[current]++ };
+      } else {
+        return { done: true };
+      }
+    }
+  };
+}
+};
+
+for(let value of range) {
+  alert(value); // 1, потом 2, потом 3, потом 4, потом 5
+}
